@@ -62,7 +62,7 @@ export default function Favoris() {
           variant="outline"
           className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
         >
-          Vue 360° (démo)
+          Vue 360° (démos)
         </Button>
       </div>
     </motion.div>
