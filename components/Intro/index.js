@@ -13,7 +13,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <section className="relative w-full h-[500px] md:h-[700px] overflow-hidden flex items-center justify-center">
+    <section className="relative w-full h-[650px] md:h-[700px] overflow-hidden flex items-center justify-center">
       {/* Image */}
       <Image
         src="/Intro.jpg"
