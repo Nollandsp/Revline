@@ -38,13 +38,16 @@ export default function Navbar() {
           </button>
 
           {/* Logo centré */}
-          <Link href="/" className="absolute left-40 -translate-x-1/2">
+          <Link
+            href="/"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0"
+          >
             <Image
               src="/Revline.jpg"
               alt="Logo OnlyPrem"
               width={140}
               height={70}
-              priority // ✅ ajout pour corriger le warning
+              priority
               className="object-contain h-[100px] w-auto"
             />
           </Link>
