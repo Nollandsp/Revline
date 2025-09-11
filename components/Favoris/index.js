@@ -30,7 +30,9 @@ export default function Favoris() {
     >
       {/* Gradient background décoratif */}
       <div className="absolute -inset-6 -z-10 rounded-[32px] bg-gradient-to-br from-red-600/30 to-white/10 blur-2xl" />
-
+      <h1 className=" text-white mb-7 text-xl font-bold">
+        Notre favorite du moment
+      </h1>
       {/* Image de la voiture */}
       <div className="rounded-[28px] overflow-hidden shadow-2xl shadow-red-900/20 ring-1 ring-white/10">
         <Image
@@ -38,6 +40,7 @@ export default function Favoris() {
           alt={activeCar.name}
           width={1600}
           height={900}
+          priority // ✅ ajouté pour supprimer le warning LCP
           className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover transition-all duration-500"
           style={{
             filter: `${

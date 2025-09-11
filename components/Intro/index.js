@@ -31,7 +31,7 @@ export default function Intro() {
       />
 
       {/* Contenu au-dessus */}
-      <div className="relative z-20 text-center px-6 mt-20">
+      <div className="relative z-20 text-center px-6 ">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,9 +51,10 @@ export default function Intro() {
           transition={{ duration: 0.9, delay: 0.3 }}
           className="mt-4 text-white/70 max-w-xl mx-auto"
         >
-          Explorez notre sélection de voitures de sport d'exception avec un
-          rendu immersif. Réservez un essai, configurez vos couleurs et
-          découvrez les performances en un clin d'œil.
+          Ce showroom virtuel est pensé pour toutes les passionnées et curieux
+          qui veulent savoir quelles supercars existent aujourd'hui. Parcourez
+          les modèles, comparez les performances et explorez les dernières
+          nouveautés du marché.
         </motion.p>
 
         <motion.div
@@ -66,14 +67,14 @@ export default function Intro() {
             className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
             variant="outline"
           >
-            Découvrir le catalogue
+            Découvrir le Showroom
           </Button>
 
           <Button
             variant="outline"
             className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
           >
-            Prendre rendez-vous
+            Prendre contact
             <ArrowRight className="ml-2 size-4" />
           </Button>
         </motion.div>

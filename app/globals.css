@@ -124,4 +124,6 @@
 /* globals.css */
 body {
   @apply bg-black text-white; /* fond noir, texte blanc */
+  margin: 0;
+  padding: 0;
 }
