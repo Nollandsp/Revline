@@ -10,7 +10,7 @@ export default function Footer() {
       <footer id="contact" className="border-t border-white/10 bg-black/60">
         <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6 text-sm text-white/70">
           <div>
-            <h4 className="text-white font-semibold mb-2">SportCar Showroom</h4>
+            <h4 className="text-white font-semibold mb-2">REVLINE</h4>
             <p>
               Votre showroom virtuel de supercars – explorez, comparez et
               découvrez les modèles les plus exclusifs du marché.
@@ -19,7 +19,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-2">Contact</h4>
             <p>
-              info@showroom.com
+              info@revline.com
               <br />
               01 23 45 67 89
             </p>

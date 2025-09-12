@@ -36,6 +36,13 @@ const cars = [
     power: "500 ch",
     price: "À partir de 162 500 €",
   },
+  {
+    name: "Aston Martin Valhalla",
+    image: "/AstonFront.jpg",
+    brand: "Aston Martin",
+    power: "1064 ch",
+    price: "À partir de 950 000 €",
+  },
 ];
 
 export default function Showroom() {

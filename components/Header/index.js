@@ -53,7 +53,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* === DESKTOP : Logo + Menu + Boutons === */}
+        {/* DESKTOP : Logo + Menu + Boutons */}
         <div className="hidden md:flex items-center justify-between w-full">
           {/* Logo à gauche */}
           <Link href="/" className="flex items-center">
@@ -62,7 +62,7 @@ export default function Navbar() {
               alt="Logo OnlyPrem"
               width={200}
               height={100}
-              priority // ✅ ajout pour corriger le warning
+              priority
               className="object-contain h-[100px] w-auto"
             />
           </Link>
@@ -93,9 +93,11 @@ export default function Navbar() {
                 Contact
               </Button>
             </a>
-            <Button className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600">
-              Connexion
-            </Button>
+            <Link href="/Connexion">
+              <Button className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600">
+                Connexion
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -123,7 +125,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/login" onClick={() => setIsOpen(false)}>
+            <Link href="/Connexion" onClick={() => setIsOpen(false)}>
               Connexion
             </Link>
           </li>
