@@ -55,7 +55,7 @@ export default function Inscription() {
         // Création du profil dans la table `profiles` côté client (RLS autorisé)
         const { error: profileError } = await supabase.from("profiles").insert([
           {
-            id: user.id, // RLS exige id = auth.uid()
+            id: user.id,
             pseudo: pseudo,
           },
         ]);
@@ -67,7 +67,6 @@ export default function Inscription() {
           );
           setError("Erreur lors de la création du profil.");
         } else {
-          // Redirection vers la page Connexion
           router.push("/Connexion");
         }
       }
@@ -80,16 +79,14 @@ export default function Inscription() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black gap-6">
-      {/* Flèche retour */}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black gap-6 px-4 relative">
       <Link
         href="/"
-        className="self-start ml-4 -mt-17 text-white font-bold text-xl flex items-center gap-1"
+        className="absolute top-2 left-2 sm:left-4 text-white text-base sm:text-xl flex items-center gap-1"
       >
         ← Retour
       </Link>
 
-      {/* Logo */}
       <Link href="/">
         <Image
           src="/Revline.jpg"
@@ -97,15 +94,18 @@ export default function Inscription() {
           width={140}
           height={70}
           priority
-          className="object-contain h-[100px] w-auto"
+          className="object-contain h-16 w-auto sm:h-20 md:h-[100px]"
         />
       </Link>
 
-      {/* Card Inscription */}
-      <Card className="w-[350px] bg-neutral-900 border-white/10 text-white">
+      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-neutral-900 border-white/10 text-white">
         <CardHeader>
-          <CardTitle className="text-xl font-bold">Inscription</CardTitle>
-          <CardDescription>Créez votre compte</CardDescription>
+          <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold">
+            Inscription
+          </CardTitle>
+          <CardDescription className="text-xs sm:text-sm">
+            Créez votre compte
+          </CardDescription>
         </CardHeader>
 
         <form onSubmit={handleSubmit}>
@@ -113,7 +113,7 @@ export default function Inscription() {
             <Input
               type="text"
               placeholder="Pseudo"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={pseudo}
               onChange={(e) => setPseudo(e.target.value)}
               required
@@ -121,7 +121,7 @@ export default function Inscription() {
             <Input
               type="email"
               placeholder="Email"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -129,7 +129,7 @@ export default function Inscription() {
             <Input
               type="password"
               placeholder="Mot de passe"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -137,26 +137,28 @@ export default function Inscription() {
             <Input
               type="password"
               placeholder="Confirmer le mot de passe"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            {error && <p className="text-red-500">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-xs sm:text-sm">{error}</p>
+            )}
           </CardContent>
 
-          <CardFooter className="flex justify-between mt-7">
+          <CardFooter className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between mt-7">
             <Button
               type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 text-white w-full sm:w-auto"
               disabled={loading}
             >
               {loading ? "Inscription..." : "S’inscrire"}
             </Button>
-            <Link href="/Connexion">
+            <Link href="/Connexion" className="w-full sm:w-auto">
               <Button
                 variant="outline"
-                className="bg-white text-black hover:bg-neutral-300"
+                className="bg-white text-black hover:bg-neutral-300 w-full sm:w-auto"
               >
                 Se connecter
               </Button>

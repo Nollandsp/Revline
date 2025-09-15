@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const cars = [
@@ -54,7 +53,7 @@ export default function Showroom() {
 
   return (
     <section id="catalogue" className="max-w-7xl mx-auto px-6 pb-20 mt-20">
-      <div className="flex items-baseline justify-between mb-7">
+      <div className="flex flex-col [@media(min-width:310px)]:flex-row items-baseline justify-between mb-7 gap-1">
         <h3 className="text-2xl font-bold text-white">Catalogue</h3>
         <p className="text-sm text-white/60">Balayez pour parcourir</p>
       </div>

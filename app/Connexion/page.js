@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase/client"; // Assure-toi d'avoir un client Supabase
+import { supabase } from "@/lib/supabase/client";
 import {
   Card,
   CardHeader,
@@ -37,7 +37,11 @@ export default function Connexion() {
         });
 
       if (authError) {
-        setError(authError.message);
+        let message = authError.message;
+        if (message === "Invalid login credentials") {
+          message = "Email ou mot de passe incorrect.";
+        }
+        setError(message);
         setLoading(false);
         return;
       }
@@ -81,10 +85,10 @@ export default function Connexion() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black gap-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black gap-6 px-4 relative">
       <Link
         href="/"
-        className="self-start ml-4 -mt-30 text-white text-xl flex items-center gap-1"
+        className="absolute top-2 left-2 sm:left-4 text-white text-base sm:text-xl flex items-center gap-1"
       >
         ← Retour
       </Link>
@@ -96,14 +100,16 @@ export default function Connexion() {
           width={140}
           height={70}
           priority
-          className="object-contain h-[100px] w-auto"
+          className="object-contain h-16 w-auto sm:h-20 md:h-[100px]"
         />
       </Link>
 
-      <Card className="w-[350px] bg-neutral-900 border-white/10 text-white">
+      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-neutral-900 border-white/10 text-white">
         <CardHeader>
-          <CardTitle className="text-xl font-bold">Connexion</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold">
+            Connexion
+          </CardTitle>
+          <CardDescription className="text-xs sm:text-sm">
             Entrez vos identifiants pour continuer
           </CardDescription>
         </CardHeader>
@@ -113,7 +119,7 @@ export default function Connexion() {
             <Input
               type="email"
               placeholder="Email"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -121,26 +127,34 @@ export default function Connexion() {
             <Input
               type="password"
               placeholder="Mot de passe"
-              className="bg-neutral-800 border-white/20 text-white"
+              className="bg-neutral-800 border-white/20 text-white text-sm sm:text-base"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {error && <p className="text-red-500">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-xs sm:text-sm">{error}</p>
+            )}
+            <Link
+              href="/reset-password"
+              className="text-xs sm:text-sm text-white/70 hover:underline mt-[-8px] mb-2 self-end"
+            >
+              Mot de passe oublié ?
+            </Link>
           </CardContent>
 
-          <CardFooter className="flex justify-between mt-7">
+          <CardFooter className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between mt-7">
             <Button
               type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 text-white w-full sm:w-auto"
               disabled={loading}
             >
               {loading ? "Connexion..." : "Se connecter"}
             </Button>
-            <Link href="/Inscription">
+            <Link href="/Inscription" className="w-full sm:w-auto">
               <Button
                 variant="outline"
-                className="bg-white text-black hover:bg-neutral-300"
+                className="bg-white text-black hover:bg-neutral-300 w-full sm:w-auto"
               >
                 S’inscrire
               </Button>

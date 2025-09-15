@@ -2,11 +2,41 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabase/client";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Vérifie l'état de connexion à l'initialisation
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+    getUser();
+
+    // Écoute les changements d'authentification
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setUser(session?.user ?? null);
+      }
+    );
+
+    return () => {
+      listener?.subscription.unsubscribe();
+    };
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    router.push("/Connexion");
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black shadow-sm">
@@ -93,11 +123,20 @@ export default function Navbar() {
                 Contact
               </Button>
             </a>
-            <Link href="/Connexion">
-              <Button className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600">
-                Connexion
+            {user ? (
+              <Button
+                className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600"
+                onClick={handleLogout}
+              >
+                Déconnexion
               </Button>
-            </Link>
+            ) : (
+              <Link href="/Connexion">
+                <Button className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600">
+                  Connexion
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -124,11 +163,25 @@ export default function Navbar() {
               À propos
             </Link>
           </li>
-          <li>
-            <Link href="/Connexion" onClick={() => setIsOpen(false)}>
-              Connexion
-            </Link>
-          </li>
+          {user ? (
+            <li>
+              <button
+                onClick={async () => {
+                  await handleLogout();
+                  setIsOpen(false);
+                }}
+                className="w-full text-left text-red-500"
+              >
+                Déconnexion
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link href="/Connexion" onClick={() => setIsOpen(false)}>
+                Connexion
+              </Link>
+            </li>
+          )}
           <li>
             <a
               href="mailto:onlyprem.pro17@gmail.com"
