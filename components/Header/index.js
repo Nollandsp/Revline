@@ -101,8 +101,8 @@ export default function Navbar() {
           <ul className="flex items-center gap-10 text-white font-medium tracking-wide">
             {[
               { name: "Catalogue", href: "/Catalogue" },
-              { name: "Configurateur", href: "/models" },
-              { name: "À propos", href: "/about" },
+              { name: "À propos", href: "/models" },
+              { name: "Profil", href: "/Profil" },
             ].map((link) => (
               <li key={link.name} className="relative group">
                 <Link
@@ -155,12 +155,12 @@ export default function Navbar() {
           </li>
           <li>
             <Link href="/Configurateur" onClick={() => setIsOpen(false)}>
-              Configurateur
+              À propos
             </Link>
           </li>
           <li>
-            <Link href="/about" onClick={() => setIsOpen(false)}>
-              À propos
+            <Link href="/Profil" onClick={() => setIsOpen(false)}>
+              Profil
             </Link>
           </li>
           {user ? (
