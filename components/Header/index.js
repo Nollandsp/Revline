@@ -100,7 +100,7 @@ export default function Navbar() {
           {/* Menu desktop */}
           <ul className="flex items-center gap-10 text-white font-medium tracking-wide">
             {[
-              { name: "Catalogue", href: "/Catalogue" },
+              { name: "Showroom", href: "/Showroom" },
               { name: "À propos", href: "/models" },
               { name: "Profil", href: "/Profil" },
             ].map((link) => (
@@ -149,8 +149,8 @@ export default function Navbar() {
       >
         <ul className="flex flex-col gap-10 text-white font-bold text-2xl h-full pt-[120px] px-8 overflow-y-auto">
           <li>
-            <Link href="/Catalogue" onClick={() => setIsOpen(false)}>
-              Catalogue
+            <Link href="/Showroom" onClick={() => setIsOpen(false)}>
+              Showroom
             </Link>
           </li>
           <li>

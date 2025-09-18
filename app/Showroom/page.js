@@ -1,0 +1,128 @@
+"use client";
+import { Card, CardContent } from "@/components/ui/card";
+import Header from "@/components/Header";
+import VehicleFilter from "@/components/Filtre";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export default function Showroom() {
+  const [filters, setFilters] = useState({ brand: "", order: "asc" });
+
+  const vehicles = [
+    {
+      id: 1,
+      name: "Ferrari SF90 XX Stradale",
+      image: "/SF90.jpg",
+      brand: "Ferrari",
+      power: "1015 ch",
+      price: "À partir de 700 000 €",
+    },
+    {
+      id: 2,
+      name: "Lamborghini Revuelto",
+      image: "/Front.jpg",
+      brand: "Lamborghini",
+      power: "1015 ch",
+      price: "À partir de 500 000 €",
+    },
+    {
+      id: 3,
+      name: "Bugatti Tourbillon",
+      image: "/BuggatiFront.jpg",
+      brand: "Bugatti",
+      power: "1 800 ch",
+      price: "À partir de 3,8 M €",
+    },
+    {
+      id: 4,
+      name: "718 Cayman GT4 RS",
+      image: "/GT4RS.webp",
+      brand: "Porsche",
+      power: "500 ch",
+      price: "À partir de 162 500 €",
+    },
+    {
+      id: 5,
+      name: "Aston Martin Valhalla",
+      image: "/AstonFront.jpg",
+      brand: "Aston Martin",
+      power: "1064 ch",
+      price: "À partir de 950 000 €",
+    },
+  ];
+
+  const filteredVehicles = vehicles
+    .filter((v) => (filters.brand ? v.brand === filters.brand : true))
+    .sort((a, b) =>
+      filters.order === "asc"
+        ? a.price.localeCompare(b.price, undefined, { numeric: true })
+        : b.price.localeCompare(a.price, undefined, { numeric: true })
+    );
+
+  const resetFilters = () => setFilters({ brand: "", order: "asc" });
+
+  return (
+    <>
+      <Header />
+
+      <section className="px-6 mt-30 max-w-7xl mx-auto">
+        {/* Filtre + bouton reset */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+          <VehicleFilter onFilter={setFilters} />
+          <button
+            onClick={resetFilters}
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition duration-200"
+          >
+            Réinitialiser
+          </button>
+        </div>
+
+        {/* Grille véhicules avec transitions smooth */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+          <AnimatePresence>
+            {filteredVehicles.map((car) => (
+              <motion.div
+                key={car.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="w-full"
+              >
+                <Card className="overflow-hidden bg-gradient-to-b from-neutral-900 to-neutral-950 border-white/10 rounded-3xl p-0">
+                  <div className="relative">
+                    <Image
+                      src={car.image}
+                      alt={car.name}
+                      width={1600}
+                      height={900}
+                      className="w-full h-56 md:h-64 object-cover rounded-t-3xl transition-transform duration-300 hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                      <div>
+                        <p className="text-xs text-white/70">{car.brand}</p>
+                        <h4 className="text-lg font-semibold text-white">
+                          {car.name}
+                        </h4>
+                      </div>
+                      <Button size="sm" className="bg-red-600 hover:bg-red-700">
+                        Détails
+                      </Button>
+                    </div>
+                  </div>
+                  <CardContent className="p-4 text-sm text-white/70">
+                    {car.power} • {car.price}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </section>
+    </>
+  );
+}
