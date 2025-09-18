@@ -51,6 +51,14 @@ export default function Showroom() {
       power: "1064 ch",
       price: "À partir de 950 000 €",
     },
+    {
+      id: 6,
+      name: "Porsche 911 GT3 RS",
+      image: "/GT3RS.webp",
+      brand: "Porsche",
+      power: "525 ch",
+      price: "À partir de 253 452,00 €",
+    },
   ];
 
   const filteredVehicles = vehicles
