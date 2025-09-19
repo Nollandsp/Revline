@@ -1,10 +1,12 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import VehicleFilter from "@/components/Filtre";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link"; // 👈 ajouter ça en haut
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Showroom() {
@@ -18,6 +20,7 @@ export default function Showroom() {
       brand: "Ferrari",
       power: "1015 ch",
       price: "À partir de 700 000 €",
+      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
     },
     {
       id: 2,
@@ -26,6 +29,7 @@ export default function Showroom() {
       brand: "Lamborghini",
       power: "1015 ch",
       price: "À partir de 500 000 €",
+      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
     },
     {
       id: 3,
@@ -34,6 +38,7 @@ export default function Showroom() {
       brand: "Bugatti",
       power: "1 800 ch",
       price: "À partir de 3,8 M €",
+      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
     },
     {
       id: 4,
@@ -42,6 +47,7 @@ export default function Showroom() {
       brand: "Porsche",
       power: "500 ch",
       price: "À partir de 162 500 €",
+      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
     },
     {
       id: 5,
@@ -50,6 +56,7 @@ export default function Showroom() {
       brand: "Aston Martin",
       power: "1064 ch",
       price: "À partir de 950 000 €",
+      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
     },
     {
       id: 6,
@@ -58,6 +65,7 @@ export default function Showroom() {
       brand: "Porsche",
       power: "525 ch",
       price: "À partir de 253 452,00 €",
+      slug: "/GT3RS", // 👈 page de détail
     },
   ];
 
@@ -75,7 +83,7 @@ export default function Showroom() {
     <>
       <Header />
 
-      <section className="px-6 mt-30 max-w-7xl mx-auto">
+      <section className="px-6 mt-30 max-w-7xl mx-auto mb-20">
         {/* Filtre + bouton reset */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
           <VehicleFilter onFilter={setFilters} />
@@ -117,9 +125,14 @@ export default function Showroom() {
                           {car.name}
                         </h4>
                       </div>
-                      <Button size="sm" className="bg-red-600 hover:bg-red-700">
-                        Détails
-                      </Button>
+                      <Link href={car.slug}>
+                        <Button
+                          size="sm"
+                          className="bg-red-600 hover:bg-red-700"
+                        >
+                          Détails
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                   <CardContent className="p-4 text-sm text-white/70">
@@ -131,6 +144,7 @@ export default function Showroom() {
           </AnimatePresence>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

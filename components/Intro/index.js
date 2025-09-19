@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Intro() {
   const [loaded, setLoaded] = useState(false);
@@ -63,13 +64,14 @@ export default function Intro() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="mt-8 flex flex-wrap justify-center gap-3"
         >
-          <Button
-            className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
-            variant="outline"
-          >
-            Découvrir le Showroom
-          </Button>
-
+          <Link href="/Showroom">
+            <Button
+              className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
+              variant="outline"
+            >
+              Découvrir le Showroom
+            </Button>
+          </Link>
           <Button
             variant="outline"
             className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "

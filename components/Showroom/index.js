@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const cars = [
   {
@@ -13,6 +14,7 @@ const cars = [
     brand: "Ferrari",
     power: "1015 ch",
     price: "À partir de 700 000 €",
+    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
   },
   {
     name: "Lamborghini Revuelto",
@@ -20,6 +22,7 @@ const cars = [
     brand: "Lamborghini",
     power: "1015 ch",
     price: "À partir de 500 000 €",
+    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
   },
   {
     name: "Bugatti Tourbillon",
@@ -27,6 +30,7 @@ const cars = [
     brand: "Bugatti",
     power: "1 800 ch",
     price: "À partir de 3,8 M €",
+    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
   },
   {
     name: "718 Cayman GT4 RS",
@@ -34,6 +38,7 @@ const cars = [
     brand: "Porsche",
     power: "500 ch",
     price: "À partir de 162 500 €",
+    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
   },
   {
     name: "Aston Martin Valhalla",
@@ -41,6 +46,7 @@ const cars = [
     brand: "Aston Martin",
     power: "1064 ch",
     price: "À partir de 950 000 €",
+    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
   },
 ];
 
@@ -87,12 +93,14 @@ export default function Showroom() {
                       {car.name}
                     </h4>
                   </div>
-                  <Button
-                    size="sm"
-                    className="bg-red-600 hover:bg-red-700 rounded-xl"
-                  >
-                    Détails
-                  </Button>
+                  <Link href={car.slug}>
+                    <Button
+                      size="sm"
+                      className="bg-red-600 hover:bg-red-700 rounded-xl"
+                    >
+                      Détails
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <CardContent className="p-4 text-sm text-white/70">
@@ -103,12 +111,14 @@ export default function Showroom() {
         ))}
       </div>
       <div className="flex items-center justify-center ">
-        <Button
-          className=" font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
-          variant="outline"
-        >
-          Découvrir le Showroom
-        </Button>
+        <Link href="/Showroom">
+          <Button
+            className=" font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
+            variant="outline"
+          >
+            Découvrir le Showroom
+          </Button>
+        </Link>
       </div>
     </section>
   );
