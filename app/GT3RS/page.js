@@ -48,23 +48,18 @@ export default function GT3RS() {
     <>
       <Header />
       <div className="bg-black text-white mt-30">
-        {/* === Section Titre + Badge === */}
         <div className="max-w-6xl mx-auto px-6 pt-8 text-center relative">
-          {/* Badge */}
           <span className="absolute left-4 sm:left-6 top-0 bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg">
             Edition limitée
           </span>
-          {/* Titre */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
             Porsche 911 GT3 RS
           </h2>
-          {/* Slogan */}
           <p className="text-white/70 text-sm sm:text-base md:text-lg">
             La combinaison parfaite entre piste et route
           </p>
         </div>
 
-        {/* === Gros Carousel === */}
         <div className="px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto pt-6">
           <div
             className="relative w-full rounded-2xl overflow-hidden bg-black
