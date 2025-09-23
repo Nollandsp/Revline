@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const product = {
-  price: "À partir de 230 000 €",
+  price: "À partir de 230 000 €,",
   images: [
     { src: "/GT3RS.webp", alt: "Porsche GT3 RS vue avant" },
     { src: "/GT3RSfront.webp", alt: "Porsche GT3 RS vue arrière" },
