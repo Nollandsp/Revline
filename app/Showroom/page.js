@@ -6,7 +6,7 @@ import VehicleFilter from "@/components/Filtre";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
-import Link from "next/link"; // 👈 ajouter ça en haut
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Showroom() {
@@ -20,7 +20,7 @@ export default function Showroom() {
       brand: "Ferrari",
       power: "1015 ch",
       price: "À partir de 700 000 €",
-      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+      slug: "/voitures/ferrari-sf90-xx-stradale",
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export default function Showroom() {
       brand: "Lamborghini",
       power: "1015 ch",
       price: "À partir de 500 000 €",
-      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+      slug: "/voitures/ferrari-sf90-xx-stradale",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ export default function Showroom() {
       brand: "Bugatti",
       power: "1 800 ch",
       price: "À partir de 3,8 M €",
-      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+      slug: "/voitures/ferrari-sf90-xx-stradale",
     },
     {
       id: 4,
@@ -47,7 +47,7 @@ export default function Showroom() {
       brand: "Porsche",
       power: "500 ch",
       price: "À partir de 162 500 €",
-      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+      slug: "/voitures/ferrari-sf90-xx-stradale",
     },
     {
       id: 5,
@@ -56,7 +56,7 @@ export default function Showroom() {
       brand: "Aston Martin",
       power: "1064 ch",
       price: "À partir de 950 000 €",
-      slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+      slug: "/voitures/ferrari-sf90-xx-stradale",
     },
     {
       id: 6,
@@ -65,7 +65,7 @@ export default function Showroom() {
       brand: "Porsche",
       power: "525 ch",
       price: "À partir de 253 452,00 €",
-      slug: "/GT3RS", // 👈 page de détail
+      slug: "/GT3RS",
     },
   ];
 

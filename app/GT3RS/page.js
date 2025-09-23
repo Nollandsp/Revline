@@ -47,38 +47,97 @@ export default function GT3RS() {
   return (
     <>
       <Header />
-      <div className="bg-black min-h-screen text-white mt-20">
-        {/* <div className="relative w-full max-w-4xl h-[180px] sm:h-[250px] md:h-[300px] lg:h-[350px] mx-auto rounded-2xl overflow-hidden">
-          <Image
-            src="/GT3RSbanner.avif"
-            alt="Porsche GT3 RS"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div> */}
+      <div className="bg-black text-white mt-30">
+        {/* === Section Titre + Badge === */}
+        <div className="max-w-6xl mx-auto px-6 pt-8 text-center relative">
+          {/* Badge */}
+          <span className="absolute left-4 sm:left-6 top-0 bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+            Edition limitée
+          </span>
+          {/* Titre */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+            Porsche 911 GT3 RS
+          </h2>
+          {/* Slogan */}
+          <p className="text-white/70 text-sm sm:text-base md:text-lg">
+            La combinaison parfaite entre piste et route
+          </p>
+        </div>
 
-        {/* Galerie d’images */}
-        <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto px-6 pt-8">
-            {product.images.map((image, idx) => (
-              <div
-                key={idx}
-                className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(idx)}
+        {/* === Gros Carousel === */}
+        <div className="px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto pt-6">
+          <div
+            className="relative w-full rounded-2xl overflow-hidden bg-black
+                       aspect-video sm:aspect-[16/8] md:aspect-[16/7] lg:aspect-[16/6]"
+          >
+            <AnimatePresence initial={false} mode="wait">
+              <motion.div
+                key={photoIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 flex items-center justify-center"
               >
                 <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  src={product.images[photoIndex].src}
+                  alt={product.images[photoIndex].alt}
+                  width={1200}
+                  height={750}
+                  priority
+                  className="rounded-2xl max-w-full h-auto cursor-pointer object-contain"
+                  onClick={() => openLightbox(photoIndex)}
                 />
-              </div>
-            ))}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Flèches */}
+            <button
+              onClick={prevImage}
+              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 text-white text-4xl sm:text-5xl md:text-6xl z-10"
+            >
+              ‹
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 text-white text-4xl sm:text-5xl md:text-6xl z-10"
+            >
+              ›
+            </button>
+
+            {/* Indicateurs */}
+            <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3">
+              {product.images.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
+                    idx === photoIndex ? "bg-white" : "bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Lightbox maison */}
+        {/* === Miniatures === */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-6xl mx-auto px-6 pt-6">
+          {product.images.slice(1).map((image, idx) => (
+            <div
+              key={idx + 1}
+              className="relative w-full aspect-video rounded-lg overflow-hidden shadow-md cursor-pointer"
+              onClick={() => openLightbox(idx + 1)}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* === Lightbox maison === */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -102,7 +161,7 @@ export default function GT3RS() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 aspect-video"
+                className="relative w-11/12 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 aspect-video"
               >
                 <Image
                   src={product.images[photoIndex].src}
@@ -129,25 +188,9 @@ export default function GT3RS() {
           )}
         </AnimatePresence>
 
-        {/* Infos produit */}
+        {/* === Infos produit === */}
         <div className="mx-auto max-w-6xl px-6 pt-12 pb-20 lg:grid lg:grid-cols-3 lg:gap-10">
           <div className="lg:col-span-2 lg:border-r lg:border-white/10 lg:pr-10">
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Porsche 911 GT3 RS
-            </h1>
-          </div>
-
-          <div className="mt-6 lg:row-span-3 lg:mt-0">
-            <p className="text-3xl font-semibold">{product.price}</p>
-            <button
-              type="button"
-              className="mt-10 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
-            >
-              Réserver un essai
-            </button>
-          </div>
-
-          <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pt-6 lg:pr-10">
             <h3 className="text-lg font-semibold text-white mb-4">
               Description
             </h3>
@@ -168,6 +211,16 @@ export default function GT3RS() {
               <h2 className="text-lg font-semibold text-white mb-4">Détails</h2>
               <p className="text-white/70">{product.details}</p>
             </div>
+          </div>
+
+          <div className="mt-6 lg:row-span-3 lg:mt-0">
+            <p className="text-3xl font-semibold">{product.price}</p>
+            <button
+              type="button"
+              className="mt-10 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
+            >
+              Réserver un essai
+            </button>
           </div>
         </div>
       </div>
