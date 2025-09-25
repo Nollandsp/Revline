@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const cars = [
   {
@@ -40,7 +41,7 @@ export default function Favoris() {
           alt={activeCar.name}
           width={1600}
           height={900}
-          priority // ✅ ajouté pour supprimer le warning LCP
+          priority
           className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover transition-all duration-500"
           style={{
             filter: `${
@@ -60,13 +61,14 @@ export default function Favoris() {
             {activeCar.brand} • {activeCar.power} • {activeCar.price}
           </p>
         </div>
-
-        <Button
-          variant="outline"
-          className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
-        >
-          Vue 360° (démos)
-        </Button>
+        <Link href="/GT3RS">
+          <Button
+            variant="outline"
+            className="font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300 "
+          >
+            Voir le véhicule
+          </Button>
+        </Link>
       </div>
     </motion.div>
   );
