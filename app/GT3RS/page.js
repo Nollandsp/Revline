@@ -33,6 +33,7 @@ export default function GT3RS() {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [openPack1, setOpenPack1] = useState(false);
   const [openPack2, setOpenPack2] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const openLightbox = (idx) => {
     setPhotoIndex(idx);
@@ -52,11 +53,10 @@ export default function GT3RS() {
     <>
       <Header />
 
-      {/* === Bloc intro titre à gauche + image bannière à droite === */}
       <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="relative z-20">
           <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg mb-4">
-            Edition limitée
+            Thermique
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Porsche 911 GT3 RS
@@ -272,14 +272,86 @@ export default function GT3RS() {
             </div>
 
             {/* Bouton Desktop (s'affiche à partir de lg) */}
-            <div className="hidden lg:flex mt-10">
+            <div className="flex justify-center lg:justify-start mt-6">
               <Button
-                className="flex items-center font-bold px-5 rounded border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
+                onClick={() => setOpen(true)}
+                className="flex items-center font-bold px-5 py-2 rounded border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
                 variant="outline"
               >
                 Fiche technique
               </Button>
             </div>
+            <AnimatePresence>
+              {open && (
+                <>
+                  {/* Overlay noir */}
+                  <motion.div
+                    className="fixed inset-0 bg-black/60 z-40"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setOpen(false)}
+                  />
+
+                  {/* Panneau qui glisse */}
+                  <motion.div
+                    className="fixed top-0 right-0 h-full w-full sm:w-1/2 md:w-1/2 lg:w-1/2 bg-white z-50 shadow-xl flex flex-col"
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "100%" }}
+                    transition={{ type: "tween", duration: 0.4 }}
+                  >
+                    {/* Header */}
+                    <div className="flex flex-col items-start p-6 border-b">
+                      <p className="text-gray-500 mt-1">PORSCHE GT3RS</p>
+                      <h2 className="text-xl font-bold text-gray-900">
+                        CARACTÉRISTIQUES TECHNIQUES
+                      </h2>
+                      <button
+                        onClick={() => setOpen(false)}
+                        className="absolute top-6 right-6 text-2xl font-bold text-gray-600 hover:text-black"
+                      >
+                        ×
+                      </button>
+                    </div>
+
+                    {/* Contenu */}
+                    <div className="p-6 overflow-y-auto text-gray-800 flex flex-col items-center">
+                      {/* Image centrée */}
+                      <div className="w-full flex justify-center mb-6">
+                        <Image
+                          src="/GT3RScarac.svg"
+                          alt="Porsche 911 GT3 RS profil"
+                          width={400}
+                          height={250}
+                          className="object-contain"
+                        />
+                      </div>
+
+                      {/* Stats alignées */}
+                      <div className="grid grid-cols-2 gap-6 text-center">
+                        <div>
+                          <p className="text-2xl font-bold">Hauteur</p>
+                          <p className="text-sm text-gray-600">1 322 mm</p>
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold">Longueur</p>
+                          <p className="text-sm text-gray-600">4 572 mm</p>
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold">Empattement</p>
+                          <p className="text-sm text-gray-600">2 457 mm</p>
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold">Largeur</p>
+                          <p className="text-sm text-gray-600">1 900 mm</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Image */}
@@ -294,14 +366,6 @@ export default function GT3RS() {
           </div>
 
           {/* Bouton Mobile/Tablet */}
-          <div className="flex lg:hidden justify-center mt-10 w-full">
-            <Button
-              className="flex items-center font-bold px-5 rounded border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
-              variant="outline"
-            >
-              Fiche technique
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -338,7 +402,7 @@ export default function GT3RS() {
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full max-w-4xl">
           <div
-            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-110 transition-transform duration-300"
+            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
             onClick={() => setOpenPack1(true)}
           >
             <Image
@@ -362,7 +426,7 @@ export default function GT3RS() {
 
           {/* Image 2 - Pack Clubsport */}
           <div
-            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-110 transition-transform duration-300"
+            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
             onClick={() => setOpenPack2(true)}
           >
             <Image
