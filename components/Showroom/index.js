@@ -14,7 +14,7 @@ const cars = [
     brand: "Ferrari",
     power: "1015 ch",
     price: "À partir de 700 000 €",
-    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+    slug: "/voitures/ferrari-sf90-xx-stradale",
   },
   {
     name: "Lamborghini Revuelto",
@@ -38,7 +38,7 @@ const cars = [
     brand: "Porsche",
     power: "500 ch",
     price: "À partir de 162 500 €",
-    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+    slug: "/GT4RS", // 👈 page de détail
   },
   {
     name: "Aston Martin Valhalla",

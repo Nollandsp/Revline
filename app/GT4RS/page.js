@@ -7,28 +7,30 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 
 const product = {
-  price: "À partir de 230 000 €",
+  price: "À partir de 162 500 €",
   images: [
-    { src: "/GT3RS/GT3RS.webp", alt: "Porsche GT3 RS vue avant" },
-    { src: "/GT3RS/GT3RSfront.webp", alt: "Porsche GT3 RS vue arrière" },
-    { src: "/GT3RS/GT3RSback.webp", alt: "Porsche GT3 RS arrière" },
-    { src: "/GT3RS/GT3RStop.webp", alt: "Porsche GT3 RS vue du dessus" },
-    { src: "/GT3RS/GT3RSinter.webp", alt: "Intérieur Porsche GT3 RS" },
+    { src: "/GT4RS/GT4RSside.webp", alt: "Porsche GT4 RS vue côté" },
+    { src: "/GT4RS.webp", alt: "Porsche GT4 RS vue avant" },
+    { src: "/GT4RS/GT4RSback.webp", alt: "Porsche GT4 RS arrière" },
+    { src: "/GT4RS/GT4RStop.webp", alt: "Porsche GT4 RS vue du dessus" },
+    { src: "/GT4RS/GT4RSinterior.webp", alt: "Intérieur Porsche GT4 RS" },
     {
-      src: "/GT3RS/GT3RSinterior.webp",
-      alt: "Détails intérieur Porsche GT3 RS",
+      src: "/GT4RS/GT4RSinteriors.webp",
+      alt: "Détails intérieur Porsche GT4 RS",
     },
   ],
   description:
-    "La Porsche 911 GT3 RS est une voiture de sport radicale conçue pour la piste mais homologuée pour la route. Avec son moteur atmosphérique de 525 ch et son aérodynamisme avancé, elle repousse les limites de la performance.",
+    "La Porsche 718 Cayman GT4 RS est une voiture de sport radicale conçue pour la piste mais homologuée pour la route. Avec son moteur atmosphérique de 6 cylindres à plat de 4,0 L développant 500 ch et son aérodynamisme avancé, elle offre des performances exceptionnelles et une expérience de conduite pure.",
   highlights: [
-    "Moteur 6 cylindres à plat atmosphérique de 525 ch",
-    "Aérodynamique active avec DRS",
+    "Moteur atmosphérique 6 cylindres à plat de 4,0 L - 500 ch",
+    "Aérodynamique avancée avec aileron arrière fixe et diffuseur",
     "Boîte PDK à 7 rapports",
-    "Intérieur orienté course avec sièges baquet carbone",
+    "Intérieur orienté course avec sièges baquet et volant sport 12h",
+    "Châssis optimisé pour la piste avec dynamique en virage améliorée",
+    "Pack Weissach disponible pour carbone léger et optimisation aérodynamique",
   ],
   details:
-    "La 911 GT3 RS combine un châssis affûté, des matériaux ultra légers et des technologies issues du sport automobile. Elle incarne l'essence de la compétition sur route ouverte.",
+    "La 718 Cayman GT4 RS combine un châssis affûté, des matériaux ultra légers et des technologies dérivées de la course automobile. Son moteur atmosphérique à haut régime, ses composants de châssis optimisés pour le circuit et son aérodynamisme poussé permettent des performances exceptionnelles sur route comme sur piste, tout en offrant une sonorité et une réactivité incomparables.",
 };
 
 export default function GT3RS() {
@@ -62,7 +64,7 @@ export default function GT3RS() {
             Thermique
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Porsche 911 GT3 RS
+            Porsche 717 Cayman GT4 RS
           </h2>
           <p className="text-white/70 text-base sm:text-lg">
             La combinaison parfaite entre piste et route
@@ -70,7 +72,7 @@ export default function GT3RS() {
         </div>
         <div className="relative flex justify-center items-center">
           <Image
-            src="/GT3RS/GT3RS.png"
+            src="/GT4RS/GT4RSlogo.png"
             alt="Porsche 911 GT3 RS bannière"
             width={500}
             height={300}
@@ -320,7 +322,7 @@ export default function GT3RS() {
                   >
                     {/* Header */}
                     <div className="flex flex-col items-start p-6 border-b">
-                      <p className="text-gray-500 mt-1">PORSCHE GT3RS</p>
+                      <p className="text-gray-500 mt-1">718 Cayman GT4RS</p>
                       <h2 className="text-xl font-bold text-gray-900">
                         CARACTÉRISTIQUES TECHNIQUES
                       </h2>
@@ -337,8 +339,8 @@ export default function GT3RS() {
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image
-                          src="/GT3RS/GT3RScarac.svg"
-                          alt="Porsche 911 GT3 RS profil"
+                          src="/GT4RS/GT4RScarac.svg"
+                          alt="Porsche 718 Cayman GT4 RS profil"
                           width={400}
                           height={250}
                           className="object-contain"
@@ -349,19 +351,19 @@ export default function GT3RS() {
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
                           <p className="text-2xl font-bold">Hauteur</p>
-                          <p className="text-sm text-gray-600">1 322 mm</p>
+                          <p className="text-sm text-gray-600">1 267 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Longueur</p>
-                          <p className="text-sm text-gray-600">4 572 mm</p>
+                          <p className="text-sm text-gray-600">4 456 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Empattement</p>
-                          <p className="text-sm text-gray-600">2 457 mm</p>
+                          <p className="text-sm text-gray-600">2 482 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Largeur</p>
-                          <p className="text-sm text-gray-600">1 900 mm</p>
+                          <p className="text-sm text-gray-600">1 822 mm</p>
                         </div>
                       </div>
                     </div>
@@ -374,7 +376,7 @@ export default function GT3RS() {
           {/* Image */}
           <div className="lg:w-1/2 mt-8 lg:mt-0 flex justify-center">
             <Image
-              src="/GT3RS/GT3RSstat.png"
+              src="/GT4RS/GT4RSstat.png"
               alt="Porsche 911 GT3 RS face avant"
               width={600}
               height={400}
@@ -389,26 +391,37 @@ export default function GT3RS() {
       {/* === Section piste avec texte === */}
       <section className="w-full relative mb-20">
         <Image
-          src="/GT3RS/GT3RStrack.avif"
-          alt="Porsche GT3 RS sur circuit"
+          src="/GT4RS/GT4RSroad.avif"
+          alt="Porsche GT4 RS sur circuit"
           width={1920}
           height={600}
           className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
           priority
         />
-        <div className="absolute left-1/2 -translate-x-1/2 text-center w-full px-4 bottom-12 sm:bottom-20 md:bottom-28">
+
+        {/* Dégradé noir sous le texte */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-64 sm:h-56 md:h-48
+                  bg-gradient-to-t from-black/100 via-black/90 to-transparent
+                  pointer-events-none z-0"
+        />
+
+        {/* Texte au-dessus du dégradé */}
+        <div className="absolute left-1/2 -translate-x-1/2 text-center w-full px-4 bottom-12 sm:bottom-20 md:bottom-28 z-10">
           <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
-            Appui optimisé
+            Son cœur bat en son centre.
+            <br />
+            Et vous pouvez l’entendre.
           </h2>
+
           <p className="text-white text-lg sm:text-lg md:text-xl font-semibold whitespace-pre-line">
-            La Porsche 911 GT3 RS a tout ce qu’il faut pour réaliser les
-            meilleurs temps,
+            Flacht. Lieu de naissance et patrie des voitures de course Porsche.
+            Le moteur du 718 Cayman GT4 RS y
             <br className="hidden sm:block" />
-            avec son aérodynamique active, sa déportance élevée et sa structure
-            allégée.
+            est également né. Conçu, testé et amélioré pour ce dixième de
+            seconde qui peut être décisif sur circuit.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-44 sm:h-40 md:h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
       </section>
 
       {/* === Section Packs circuit === */}
@@ -423,8 +436,8 @@ export default function GT3RS() {
             onClick={() => setOpenPack1(true)}
           >
             <Image
-              src="/GT3RS/GT3RSweissach.avif"
-              alt="Porsche GT3 RS sur circuit"
+              src="/GT4RS/GT4RSgarage.avif"
+              alt="Porsche GT4 RS dans un garage"
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
@@ -442,28 +455,6 @@ export default function GT3RS() {
           </div>
 
           {/* Image 2 - Pack Clubsport */}
-          <div
-            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
-            onClick={() => setOpenPack2(true)}
-          >
-            <Image
-              src="/GT3RS/GT3RSclub.avif"
-              alt="Porsche GT3 RS autre pack"
-              width={1920}
-              height={1080}
-              className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
-              priority
-            />
-            {/* Overlay texte + bouton */}
-            <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
-              <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Pack Clubsport
-              </h3>
-              <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
-                Pack
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Modale Image 1 */}
@@ -493,7 +484,7 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <Image
-                  src="/GT3RS/GT3RSweissach.avif"
+                  src="/GT4RS/GT4RSweissach.avif"
                   alt="Pack Weissach"
                   width={1200}
                   height={600}
@@ -504,17 +495,16 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  Pack Weissach
+                  Intérieur avec accent Weissach
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  Dans la course au millième de seconde, chaque gramme compte.
-                  Le Pack Weissach en option réduit encore le poids de presque
-                  15 kg. À l’intérieur, l’arceau de sécurité arrière en carbone
-                  apparent (finition satinée) rappelle l’ambition du modèle et
-                  assure une protection supplémentaire sur circuit. Également en
-                  PRFC, les stabilisateurs des essieux avant et arrière, les
-                  barres d’accouplement sur l’essieu arrière et la plaque de
-                  cisaillement contribuent à atteindre un poids idéal.
+                  Avec le Pack Weissach, la partie supérieur du tableau de bord
+                  est également récouverte de Race-Tex, une matière testée sur
+                  circuit, qui complète un intérieur résolument épuré et sportif
+                  tout en réduisant les reflets gênants sur le par-brise. Le
+                  logo du Pack Weissach brodé sur les appuie-tête et la
+                  plaquette sur le baguette décorative du tableau de bord en
+                  indiquant encore clairement la provenance.
                 </p>
               </div>
             </motion.div>
@@ -522,56 +512,6 @@ export default function GT3RS() {
         </AnimatePresence>
 
         {/* Modale Image 2 */}
-        <AnimatePresence>
-          {openPack2 && (
-            <motion.div
-              className="fixed inset-0 bg-black/95 flex flex-col justify-center items-center z-50 px-4 py-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Bouton fermer */}
-              <button
-                onClick={() => setOpenPack2(false)}
-                className="absolute top-6 right-6 text-white text-3xl font-bold z-50"
-              >
-                ×
-              </button>
-
-              {/* Image animée */}
-              <motion.div
-                key="pack-clubsport"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
-              >
-                <Image
-                  src="/GT3RS/GT3RSclub.avif"
-                  alt="Pack Clubsport"
-                  width={1200}
-                  height={600}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-
-              {/* Texte en dessous */}
-              <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 ">
-                <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  Pack Clubsport
-                </h3>
-                <p className="text-black text-sm sm:text-base md:text-lg">
-                  Le Pack Clubsport disponible sans supplément ajoute un arceau
-                  de sécurité en acier, boulonné à la carrosserie et peint au
-                  choix en Noir ou en Rouge Indien, derrière les sièges avant.
-                  Un harnais 6 points contribue également à renforcer la
-                  sécurité du pilote.
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </section>
 
       <Footer />
