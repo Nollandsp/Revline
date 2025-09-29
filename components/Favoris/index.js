@@ -8,7 +8,7 @@ import Link from "next/link";
 const cars = [
   {
     name: "Porsche ",
-    image: "/GT3RS.webp",
+    image: "/GT3RS/GT3RS.webp",
     brand: "Porsche 911 GT3 RS",
     power: "525 ch",
     price: "À partir de 253 452,00 €",

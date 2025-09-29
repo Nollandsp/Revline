@@ -34,7 +34,7 @@ const cars = [
   },
   {
     name: "718 Cayman GT4 RS",
-    image: "/GT4RS.webp",
+    image: "/GT4RS/GT4RS.webp",
     brand: "Porsche",
     power: "500 ch",
     price: "À partir de 162 500 €",
