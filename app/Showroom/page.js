@@ -61,7 +61,7 @@ export default function Showroom() {
     {
       id: 6,
       name: "Porsche 911 GT3 RS",
-      image: "/GT3RS.webp",
+      image: "/GT3RS/GT3RS.webp",
       brand: "Porsche",
       power: "525 ch",
       price: "À partir de 253 452,00 €",

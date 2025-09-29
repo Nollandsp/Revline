@@ -10,7 +10,7 @@ const product = {
   price: "À partir de 162 500 €",
   images: [
     { src: "/GT4RS/GT4RSside.webp", alt: "Porsche GT4 RS vue côté" },
-    { src: "/GT4RS.webp", alt: "Porsche GT4 RS vue avant" },
+    { src: "/GT4RS/GT4RS.webp", alt: "Porsche GT4 RS vue avant" },
     { src: "/GT4RS/GT4RSback.webp", alt: "Porsche GT4 RS arrière" },
     { src: "/GT4RS/GT4RStop.webp", alt: "Porsche GT4 RS vue du dessus" },
     { src: "/GT4RS/GT4RSinterior.webp", alt: "Intérieur Porsche GT4 RS" },
