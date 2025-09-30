@@ -7,30 +7,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 
 const product = {
-  price: "À partir de 162 500 €",
+  price: "À partir de 500 000 €",
   images: [
-    { src: "/GT4RS/GT4RSside.webp", alt: "Porsche GT4 RS vue côté" },
-    { src: "/GT4RS/GT4RS.webp", alt: "Porsche GT4 RS vue avant" },
-    { src: "/GT4RS/GT4RSback.webp", alt: "Porsche GT4 RS arrière" },
-    { src: "/GT4RS/GT4RStop.webp", alt: "Porsche GT4 RS vue du dessus" },
-    { src: "/GT4RS/GT4RSinterior.webp", alt: "Intérieur Porsche GT4 RS" },
     {
-      src: "/GT4RS/GT4RSinteriors.webp",
+      src: "/Revuelto/Revueltofront.jpg",
+      alt: "Lamborghtini Revuelto vue côté",
+    },
+    { src: "/Revuelto/Side.jpg", alt: "Porsche GT4 RS vue avant" },
+    { src: "/Revuelto/Top.jpg", alt: "Porsche GT4 RS arrière" },
+    { src: "/Revuelto/Back.jpg", alt: "Porsche GT4 RS vue du dessus" },
+    { src: "/Revuelto/inside.jpg", alt: "Intérieur Porsche GT4 RS" },
+    {
+      src: "/Revuelto/Inside2.jpg",
       alt: "Détails intérieur Porsche GT4 RS",
     },
   ],
   description:
-    "La Porsche 718 Cayman GT4 RS est une voiture de sport radicale conçue pour la piste mais homologuée pour la route. Avec son moteur atmosphérique de 6 cylindres à plat de 4,0 L développant 500 ch et son aérodynamisme avancé, elle offre des performances exceptionnelles et une expérience de conduite pure.",
+    "La Lamborghini Revuelto est une supercar hybride V12 radicale, combinant un moteur atmosphérique de 6,5 L avec trois moteurs électriques pour une puissance totale de 1 001 ch. Conçue pour offrir des performances extrêmes sur piste tout en restant utilisable sur route, elle propose un design futuriste, un châssis en fibre de carbone et des technologies de pointe pour une expérience de conduite immersive.",
   highlights: [
-    "Moteur atmosphérique 6 cylindres à plat de 4,0 L - 500 ch",
-    "Aérodynamique avancée avec aileron arrière fixe et diffuseur",
-    "Boîte PDK à 7 rapports",
-    "Intérieur orienté course avec sièges baquet et volant sport 12h",
-    "Châssis optimisé pour la piste avec dynamique en virage améliorée",
-    "Pack Weissach disponible pour carbone léger et optimisation aérodynamique",
+    "Moteur V12 atmosphérique 6,5 L combiné à 3 moteurs électriques - 1 001 ch",
+    "Transmission double embrayage 8 rapports avec vectorisation du couple",
+    "Châssis en fibre de carbone ultra rigide pour performance optimale",
+    "Suspension double triangulation avec amortisseurs adaptatifs",
+    "Aérodynamique avancée avec aileron arrière actif et extracteurs d’air",
+    "Cockpit orienté conducteur avec tableau de bord numérique et écran passager",
   ],
   details:
-    "La 718 Cayman GT4 RS combine un châssis affûté, des matériaux ultra légers et des technologies dérivées de la course automobile. Son moteur atmosphérique à haut régime, ses composants de châssis optimisés pour le circuit et son aérodynamisme poussé permettent des performances exceptionnelles sur route comme sur piste, tout en offrant une sonorité et une réactivité incomparables.",
+    "La Lamborghini Revuelto combine un moteur V12 atmosphérique à haut régime et un système hybride à trois moteurs électriques, offrant à la fois puissance, réactivité et efficacité. Son châssis en fibre de carbone, ses suspensions adaptatives et son aérodynamisme actif assurent des performances exceptionnelles sur circuit comme sur route. L’habitacle futuriste et orienté pilote, avec écrans numériques et technologies connectées, complète une expérience de conduite pure et immersive.",
 };
 
 export default function GT3RS() {
@@ -58,13 +61,13 @@ export default function GT3RS() {
     <>
       <Header />
 
-      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:-mt-30">
+      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:-mt-5">
         <div className="relative z-20">
           <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg mb-4">
-            Thermique
+            Hybride
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Porsche 718 Cayman GT4 RS
+            Lamborghini Revuelto
           </h2>
           <p className="text-white/70 text-base sm:text-lg">
             La combinaison parfaite entre piste et route
@@ -74,7 +77,7 @@ export default function GT3RS() {
         {/* Parent caché sur mobile/tablette */}
         <div className="relative flex justify-center items-center w-full lg:max-w-[800px] mx-auto hidden lg:flex">
           <Image
-            src="/GT4RS/GT4RSlogo.png"
+            src="/Revuelto/Revueltologo.svg"
             alt="Porsche 718 Cayman GT4 RS bannière"
             width={500}
             height={300}
@@ -278,17 +281,19 @@ export default function GT3RS() {
           {/* Stats verticales */}
           <div className="lg:w-1/2 text-white space-y-10 text-center lg:text-left">
             <div>
-              <p className="text-4xl md:text-5xl font-bold">3,2 s</p>
+              <p className="text-4xl md:text-5xl font-bold">2,5 s</p>
               <p className="text-base md:text-lg text-white/70">0 → 100 km/h</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">386 kW / 525 ch</p>
-              <p className="text-base md:text-lg text-white/70">Puissance</p>
+              <p className="text-4xl md:text-5xl font-bold">747 kW / 1015 ch</p>
+              <p className="text-base md:text-lg text-white/70">
+                Puissance maximale combinée
+              </p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">296 km/h</p>
+              <p className="text-4xl md:text-5xl font-bold">350 km/h</p>
               <p className="text-base md:text-lg text-white/70">
-                Vitesse max circuit
+                Puissance maximale{" "}
               </p>
             </div>
 
@@ -378,7 +383,7 @@ export default function GT3RS() {
           {/* Image */}
           <div className="lg:w-1/2 mt-8 lg:mt-0 flex justify-center">
             <Image
-              src="/GT4RS/GT4RSstat.png"
+              src="/Revuelto/Revueltostat.png"
               alt="Porsche 911 GT3 RS face avant"
               width={600}
               height={400}

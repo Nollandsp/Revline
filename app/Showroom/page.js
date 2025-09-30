@@ -25,11 +25,11 @@ export default function Showroom() {
     {
       id: 2,
       name: "Lamborghini Revuelto",
-      image: "/Front.jpg",
+      image: "/Revuelto/Revueltofront.jpg",
       brand: "Lamborghini",
       power: "1015 ch",
       price: "À partir de 500 000 €",
-      slug: "/voitures/ferrari-sf90-xx-stradale",
+      slug: "/Revuelto",
     },
     {
       id: 3,

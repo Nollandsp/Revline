@@ -56,7 +56,7 @@ export default function GT3RS() {
     <>
       <Header />
 
-      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:-mt-8">
         <div className="relative z-20">
           <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg mb-4">
             Thermique
@@ -75,7 +75,7 @@ export default function GT3RS() {
             width={500}
             height={300}
             priority
-            className="relative z-10 object-contain hidden sm:block md:hidden lg:block"
+            className="relative z-10 object-contain hidden lg:block"
           />
         </div>
       </section>

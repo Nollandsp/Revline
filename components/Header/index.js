@@ -87,14 +87,16 @@ export default function Navbar() {
         <div className="hidden md:flex items-center justify-between w-full">
           {/* Logo à gauche */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="/Revline.jpg"
-              alt="Logo OnlyPrem"
-              width={200}
-              height={100}
-              priority
-              className="object-contain h-[100px] w-auto"
-            />
+            <div className="h-[50px] lg:h-[100px] flex items-center">
+              <Image
+                src="/Revline.jpg"
+                alt="Logo OnlyPrem"
+                width={200}
+                height={100}
+                priority
+                className="object-contain h-full w-auto"
+              />
+            </div>
           </Link>
 
           {/* Menu desktop */}

@@ -18,11 +18,11 @@ const cars = [
   },
   {
     name: "Lamborghini Revuelto",
-    image: "/Front.jpg",
+    image: "/Revuelto/Revueltofront.jpg",
     brand: "Lamborghini",
     power: "1015 ch",
     price: "À partir de 500 000 €",
-    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+    slug: "/Revuelto", // 👈 page de détail
   },
   {
     name: "Bugatti Tourbillon",
