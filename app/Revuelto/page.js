@@ -2,25 +2,24 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
+import { useInView } from "react-intersection-observer";
+import RevueltoButton from "@/components/ui/buttonRevuelto";
 
 const product = {
   price: "À partir de 500 000 €",
   images: [
     {
       src: "/Revuelto/Revueltofront.jpg",
-      alt: "Lamborghtini Revuelto vue côté",
+      alt: "Lamborghini Revuelto vue côté",
     },
     { src: "/Revuelto/Side.jpg", alt: "Porsche GT4 RS vue avant" },
     { src: "/Revuelto/Top.jpg", alt: "Porsche GT4 RS arrière" },
     { src: "/Revuelto/Back.jpg", alt: "Porsche GT4 RS vue du dessus" },
     { src: "/Revuelto/inside.jpg", alt: "Intérieur Porsche GT4 RS" },
-    {
-      src: "/Revuelto/Inside2.jpg",
-      alt: "Détails intérieur Porsche GT4 RS",
-    },
+    { src: "/Revuelto/Inside2.jpg", alt: "Détails intérieur Porsche GT4 RS" },
   ],
   description:
     "La Lamborghini Revuelto est une supercar hybride V12 radicale, combinant un moteur atmosphérique de 6,5 L avec trois moteurs électriques pour une puissance totale de 1 001 ch. Conçue pour offrir des performances extrêmes sur piste tout en restant utilisable sur route, elle propose un design futuriste, un châssis en fibre de carbone et des technologies de pointe pour une expérience de conduite immersive.",
@@ -35,6 +34,37 @@ const product = {
   details:
     "La Lamborghini Revuelto combine un moteur V12 atmosphérique à haut régime et un système hybride à trois moteurs électriques, offrant à la fois puissance, réactivité et efficacité. Son châssis en fibre de carbone, ses suspensions adaptatives et son aérodynamisme actif assurent des performances exceptionnelles sur circuit comme sur route. L’habitacle futuriste et orienté pilote, avec écrans numériques et technologies connectées, complète une expérience de conduite pure et immersive.",
 };
+
+// === Composant compteur animé ===
+function StatNumber({ value, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 2000; // durée totale en ms
+    const steps = 50; // nombre de pas pour l'animation
+    let currentStep = 0;
+
+    const increment = value / steps;
+    const stepTime = duration / steps;
+
+    const timer = setInterval(() => {
+      currentStep += 1;
+      setCount((prev) => Math.min(prev + increment, value));
+      if (currentStep >= steps) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
+  return (
+    <span ref={ref}>
+      {count.toFixed(1)}
+      {suffix}
+    </span>
+  );
+}
 
 export default function GT3RS() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +100,8 @@ export default function GT3RS() {
             Lamborghini Revuelto
           </h2>
           <p className="text-white/70 text-base sm:text-lg">
-            La combinaison parfaite entre piste et route
+            La Revuelto : quand l’icône V12 rencontre l’électrification et
+            repousse les limites.
           </p>
         </div>
 
@@ -279,21 +310,28 @@ export default function GT3RS() {
         {/* === Bloc stats + image sur toute la largeur === */}
         <div className="mt-12 lg:col-span-3 lg:flex lg:gap-16 px-4 sm:px-8 lg:px-20">
           {/* Stats verticales */}
+          {/* Stats verticales */}
           <div className="lg:w-1/2 text-white space-y-10 text-center lg:text-left">
             <div>
-              <p className="text-4xl md:text-5xl font-bold">2,5 s</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={2.5} suffix=" s" />
+              </p>
               <p className="text-base md:text-lg text-white/70">0 → 100 km/h</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">747 kW / 1015 ch</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={1015} suffix=" ch" />
+              </p>
               <p className="text-base md:text-lg text-white/70">
                 Puissance maximale combinée
               </p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">350 km/h</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={350} suffix=" km/h" />
+              </p>
               <p className="text-base md:text-lg text-white/70">
-                Puissance maximale{" "}
+                Vitesse maximale
               </p>
             </div>
 
@@ -307,6 +345,7 @@ export default function GT3RS() {
                 Fiche technique
               </Button>
             </div>
+
             <AnimatePresence>
               {open && (
                 <>
@@ -518,9 +557,9 @@ export default function GT3RS() {
           )}
         </AnimatePresence>
       </section>
-      <section className="max-w-4xl mx-auto px-4 mb-20">
+      <section className="max-w-4xl mx-auto px-4 pt-10">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
-          Consommation et Émissions - 718 Cayman GT4 RS
+          Consommation et Émissions - Lamborghini Revuelto
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
@@ -529,21 +568,64 @@ export default function GT3RS() {
               Consommation
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              13,0 l/100 km
+              26,5 Kwh/100 km
             </p>
           </div>
+          <div>
+            <p className="text-white/50 uppercase tracking-wide mb-2">
+              Consommation d'énergie
+            </p>
+            <p className="text-white text-xl sm:text-2xl font-bold">
+              17,9 l/100 km
+            </p>
+          </div>
+
           <div>
             <p className="text-white/50 uppercase tracking-wide mb-2">
               Émissions CO₂
             </p>
-            <p className="text-white text-xl sm:text-2xl font-bold">295 g/km</p>
+            <p className="text-white text-xl sm:text-2xl font-bold">350 g/km</p>
           </div>
-          <div>
-            <p className="text-white/50 uppercase tracking-wide mb-2">
-              Classe énergétique
-            </p>
-            <p className="text-white text-xl sm:text-2xl font-bold">G</p>
+          <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10 lg:mb-10">
+            <div className="text-center">
+              <p className="text-white/50 uppercase tracking-wide mb-2">
+                Classe énergétique
+              </p>
+              <p className="text-white text-xl sm:text-2xl lg:text-4xl font-bold">
+                G
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+      <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
+        <Image
+          src="/Revuelto/Revueltoexhaust.jpg"
+          alt="Porsche GT4 RS sur circuit"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Dégradé noir en haut */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
+
+        {/* Texte responsive */}
+        <div className="absolute left-1/2 -translate-x-1/2 px-4 text-center top-5 lg:top-10 w-full">
+          <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+            Feel the V12 Engine{" "}
+          </h2>
+          <p className="text-white text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold whitespace-pre-line">
+            1015 chevaux orchestrés par un V12 atmosphérique et trois moteurs
+            électriques.
+            <br className="hidden sm:block" />
+            La Revuelto réinvente la supercar et redéfinit la performance.
+          </p>
+        </div>
+
+        {/* Bouton toujours en bas */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
+          <RevueltoButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 

@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import GT4RSButton from "@/components/ui/buttonGT4RS";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
+import { useInView } from "react-intersection-observer";
 
 const product = {
   price: "À partir de 162 500 €",
@@ -32,6 +34,37 @@ const product = {
   details:
     "La 718 Cayman GT4 RS combine un châssis affûté, des matériaux ultra légers et des technologies dérivées de la course automobile. Son moteur atmosphérique à haut régime, ses composants de châssis optimisés pour le circuit et son aérodynamisme poussé permettent des performances exceptionnelles sur route comme sur piste, tout en offrant une sonorité et une réactivité incomparables.",
 };
+
+// / === Composant compteur animé ===
+function StatNumber({ value, suffix = "" }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 2000; // durée totale en ms
+    const steps = 50; // nombre de pas pour l'animation
+    let currentStep = 0;
+
+    const increment = value / steps;
+    const stepTime = duration / steps;
+
+    const timer = setInterval(() => {
+      currentStep += 1;
+      setCount((prev) => Math.min(prev + increment, value));
+      if (currentStep >= steps) clearInterval(timer);
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
+  return (
+    <span ref={ref}>
+      {count.toFixed(1)}
+      {suffix}
+    </span>
+  );
+}
 
 export default function GT3RS() {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +100,8 @@ export default function GT3RS() {
             Porsche 718 Cayman GT4 RS
           </h2>
           <p className="text-white/70 text-base sm:text-lg">
-            La combinaison parfaite entre piste et route
+            Conçue pour le pilote, animée par l’âme d’un 6 cylindres à plat
+            Porsche.{" "}
           </p>
         </div>
 
@@ -85,7 +119,7 @@ export default function GT3RS() {
       </section>
 
       {/* === Gros Carousel === */}
-      <section className="px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto pt-6">
+      <section className="px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto lg:-mt-16">
         <div
           className="relative w-full rounded-2xl overflow-hidden bg-black
                      aspect-video sm:aspect-[16/8] md:aspect-[16/7] lg:aspect-[16/6]"
@@ -278,15 +312,23 @@ export default function GT3RS() {
           {/* Stats verticales */}
           <div className="lg:w-1/2 text-white space-y-10 text-center lg:text-left">
             <div>
-              <p className="text-4xl md:text-5xl font-bold">3,2 s</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={3.4} suffix=" s" />
+              </p>
               <p className="text-base md:text-lg text-white/70">0 → 100 km/h</p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">386 kW / 525 ch</p>
-              <p className="text-base md:text-lg text-white/70">Puissance</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={500} suffix=" ch" />
+              </p>
+              <p className="text-base md:text-lg text-white/70">
+                Puissance maximale
+              </p>
             </div>
             <div>
-              <p className="text-4xl md:text-5xl font-bold">296 km/h</p>
+              <p className="text-4xl md:text-5xl font-bold">
+                <StatNumber value={315} suffix=" km/h" />
+              </p>
               <p className="text-base md:text-lg text-white/70">
                 Vitesse max circuit
               </p>
@@ -391,21 +433,20 @@ export default function GT3RS() {
       </section>
 
       {/* === Section piste avec texte === */}
-      <section className="w-full relative mb-20">
+      <section className="w-full relative mb-20 h-[500px] sm:h-[600px] md:h-[700px]">
         <Image
           src="/GT4RS/GT4RSroad.avif"
           alt="Porsche GT4 RS sur circuit"
-          width={1920}
-          height={600}
-          className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
+          fill
+          className="object-cover"
           priority
         />
 
         {/* Dégradé noir sous le texte */}
         <div
           className="absolute bottom-0 left-0 w-full h-64 sm:h-56 md:h-48
-                  bg-gradient-to-t from-black/100 via-black/90 to-transparent
-                  pointer-events-none z-0"
+                bg-gradient-to-t from-black/100 via-black/90 to-transparent
+                pointer-events-none z-0"
         />
 
         {/* Texte au-dessus du dégradé */}
@@ -513,7 +554,7 @@ export default function GT3RS() {
           )}
         </AnimatePresence>
       </section>
-      <section className="max-w-4xl mx-auto px-4 mb-20">
+      <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
           Consommation et Émissions - 718 Cayman GT4 RS
         </h2>
@@ -539,6 +580,36 @@ export default function GT3RS() {
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">G</p>
           </div>
+        </div>
+      </section>
+
+      <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
+        <Image
+          src="/GT4RS/GT4RSexhaust.avif"
+          alt="Porsche GT4 RS sur circuit"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Dégradé noir en haut */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
+
+        {/* Texte responsive */}
+        <div className="absolute left-1/2 -translate-x-1/2 px-4 text-center top-5 lg:top-10 w-full">
+          <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+            Sonorité pure, digne du sport automobile.
+          </h2>
+          <p className="text-white text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold whitespace-pre-line">
+            Préparez-vous à avoir la chair de poule.
+            <br className="hidden sm:block" />
+            Découvrez le son unique du 718 Cayman GT4 RS.
+          </p>
+        </div>
+
+        {/* Bouton toujours en bas */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
+          <GT4RSButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 
