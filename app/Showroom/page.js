@@ -34,11 +34,11 @@ export default function Showroom() {
     {
       id: 3,
       name: "Bugatti Tourbillon",
-      image: "/BuggatiFront.jpg",
+      image: "/Bugatti/BuggatiFront.jpg",
       brand: "Bugatti",
       power: "1 800 ch",
       price: "À partir de 3,8 M €",
-      slug: "/voitures/ferrari-sf90-xx-stradale",
+      slug: "/Tourbillon",
     },
     {
       id: 4,

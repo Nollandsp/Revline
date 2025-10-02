@@ -26,11 +26,11 @@ const cars = [
   },
   {
     name: "Bugatti Tourbillon",
-    image: "/BuggatiFront.jpg",
+    image: "/Bugatti/BuggatiFront.jpg",
     brand: "Bugatti",
     power: "1 800 ch",
     price: "À partir de 3,8 M €",
-    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+    slug: "/Tourbillon", // 👈 page de détail
   },
   {
     name: "718 Cayman GT4 RS",

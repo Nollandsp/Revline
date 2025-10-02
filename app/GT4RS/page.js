@@ -450,19 +450,19 @@ export default function GT3RS() {
         />
 
         {/* Texte au-dessus du dégradé */}
-        <div className="absolute left-1/2 -translate-x-1/2 text-center w-full px-4 bottom-12 sm:bottom-20 md:bottom-28 z-10">
-          <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-28 text-center lg:max-w-3xl lg:mx-auto z-10">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 lg:mb-4">
             Son cœur bat en son centre.
-            <br />
+            <br className="hidden lg:block" />
             Et vous pouvez l’entendre.
           </h2>
 
-          <p className="text-white text-lg sm:text-lg md:text-xl font-semibold whitespace-pre-line">
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold whitespace-pre-line">
             Flacht. Lieu de naissance et patrie des voitures de course Porsche.
-            Le moteur du 718 Cayman GT4 RS y
-            <br className="hidden sm:block" />
-            est également né. Conçu, testé et amélioré pour ce dixième de
-            seconde qui peut être décisif sur circuit.
+            <br className="hidden lg:block" />
+            Le moteur du 718 Cayman GT4 RS y est également né. Conçu, testé et
+            amélioré pour ce dixième de seconde qui peut être décisif sur
+            circuit.
           </p>
         </div>
       </section>
@@ -585,7 +585,7 @@ export default function GT3RS() {
 
       <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/GT4RS/GT4RSexhaust.avif"
+          src="/GT4RS/GT4RSexhausts.jpg"
           alt="Porsche GT4 RS sur circuit"
           fill
           className="object-cover"
@@ -596,13 +596,13 @@ export default function GT3RS() {
         <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
 
         {/* Texte responsive */}
-        <div className="absolute left-1/2 -translate-x-1/2 px-4 text-center top-5 lg:top-10 w-full">
-          <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 top-4 sm:top-5 md:top-6 lg:top-10 text-center lg:max-w-3xl lg:mx-auto z-10">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-2 lg:mb-4">
             Sonorité pure, digne du sport automobile.
           </h2>
-          <p className="text-white text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold whitespace-pre-line">
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold whitespace-pre-line">
             Préparez-vous à avoir la chair de poule.
-            <br className="hidden sm:block" />
+            <br className="hidden lg:block" />
             Découvrez le son unique du 718 Cayman GT4 RS.
           </p>
         </div>

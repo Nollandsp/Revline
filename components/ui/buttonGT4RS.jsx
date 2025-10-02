@@ -58,7 +58,8 @@ export default function GT4RSButton() {
       <audio ref={audioRef} src="/GT4RS/GT4RSsound.mp3" preload="auto" />
 
       <button
-        className="mt-6 w-full px-6 py-3 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition-colors duration-300"
+        className="mt-6 w-full px-6 py-3 border-2 border-white text-white font-bold rounded 
+             bg-transparent hover:bg-white hover:text-black transition-colors duration-300"
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}

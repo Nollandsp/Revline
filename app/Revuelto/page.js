@@ -368,7 +368,7 @@ export default function GT3RS() {
                   >
                     {/* Header */}
                     <div className="flex flex-col items-start p-6 border-b">
-                      <p className="text-gray-500 mt-1">718 Cayman GT4RS</p>
+                      <p className="text-gray-500 mt-1">Lamborghini Revuelto</p>
                       <h2 className="text-xl font-bold text-gray-900">
                         CARACTÉRISTIQUES TECHNIQUES
                       </h2>
@@ -385,7 +385,7 @@ export default function GT3RS() {
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image
-                          src="/GT4RS/GT4RScarac.svg"
+                          src="/Revuelto/Revueltocarac.png"
                           alt="Porsche 718 Cayman GT4 RS profil"
                           width={400}
                           height={250}
@@ -397,19 +397,19 @@ export default function GT3RS() {
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
                           <p className="text-2xl font-bold">Hauteur</p>
-                          <p className="text-sm text-gray-600">1 267 mm</p>
+                          <p className="text-sm text-gray-600">1 160 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Longueur</p>
-                          <p className="text-sm text-gray-600">4 456 mm</p>
+                          <p className="text-sm text-gray-600">4 947 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Empattement</p>
-                          <p className="text-sm text-gray-600">2 482 mm</p>
+                          <p className="text-sm text-gray-600">2 779 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Largeur</p>
-                          <p className="text-sm text-gray-600">1 822 mm</p>
+                          <p className="text-sm text-gray-600">2 266 mm</p>
                         </div>
                       </div>
                     </div>
@@ -420,13 +420,13 @@ export default function GT3RS() {
           </div>
 
           {/* Image */}
-          <div className="lg:w-1/2 mt-8 lg:mt-0 flex justify-center">
+          <div className="w-full mt-8 lg:mt-0 flex justify-center">
             <Image
-              src="/Revuelto/Revueltostat.png"
-              alt="Porsche 911 GT3 RS face avant"
-              width={600}
-              height={400}
-              className="rounded-xl object-contain w-full max-w-[400px] sm:max-w-[500px] md:max-w-[350px] lg:max-w-[600px]"
+              src="/Revuelto/Revueltostats.jpg"
+              alt="Porsche Revuelto face avant"
+              width={1600}
+              height={1000}
+              className="rounded-xl object-contain w-full max-w-[1400px]"
             />
           </div>
 
@@ -437,8 +437,8 @@ export default function GT3RS() {
       {/* === Section piste avec texte === */}
       <section className="w-full relative mb-20">
         <Image
-          src="/GT4RS/GT4RSroad.avif"
-          alt="Porsche GT4 RS sur circuit"
+          src="/Revuelto/Revueltoaero.jpg"
+          alt="Lamborghini Revuelto sur route"
           width={1920}
           height={600}
           className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
@@ -453,19 +453,17 @@ export default function GT3RS() {
         />
 
         {/* Texte au-dessus du dégradé */}
-        <div className="absolute left-1/2 -translate-x-1/2 text-center w-full px-4 bottom-12 sm:bottom-20 md:bottom-28 z-10">
-          <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2">
-            Son cœur bat en son centre.
-            <br />
-            Et vous pouvez l’entendre.
+        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-32 text-center lg:max-w-3xl lg:mx-auto">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 lg:mb-4">
+            Lignes sculptées pour la performance ultime
           </h2>
 
-          <p className="text-white text-lg sm:text-lg md:text-xl font-semibold whitespace-pre-line">
-            Flacht. Lieu de naissance et patrie des voitures de course Porsche.
-            Le moteur du 718 Cayman GT4 RS y
-            <br className="hidden sm:block" />
-            est également né. Conçu, testé et amélioré pour ce dixième de
-            seconde qui peut être décisif sur circuit.
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
+            La Revuelto adopte une stratégie aérodynamique innovante alliant
+            efficacité, synergie des composants et refroidissement optimisé,
+            <br className="hidden lg:block" />
+            intégrant le design dès le départ. Cette approche offre des
+            performances accrues et des sensations inégalées.
           </p>
         </div>
       </section>
@@ -473,7 +471,7 @@ export default function GT3RS() {
       {/* === Section Packs circuit === */}
       <section className="flex flex-col items-center mb-20 px-4">
         <h2 className="text-center text-white text-xl sm:text-2xl md:text-3xl font-bold mx-auto mb-10 mt-6">
-          Packs circuit
+          Le Cœur Hybride de la Revuelto{" "}
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full max-w-4xl">
@@ -482,8 +480,8 @@ export default function GT3RS() {
             onClick={() => setOpenPack1(true)}
           >
             <Image
-              src="/GT4RS/GT4RSgarage.avif"
-              alt="Porsche GT4 RS dans un garage"
+              src="/Revuelto/Revueltotrack.webp"
+              alt="Lamborghini Revuelto sur circuit"
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
@@ -492,7 +490,7 @@ export default function GT3RS() {
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Pack Weissach
+                L’alliance brute du V12 et de l’hybride{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
                 Pack
@@ -530,8 +528,8 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <Image
-                  src="/GT4RS/GT4RSweissach.avif"
-                  alt="Pack Weissach"
+                  src="/Revuelto/Revueltoengine.png"
+                  alt="Revuelto engine"
                   width={1200}
                   height={600}
                   className="w-full h-full object-cover"
@@ -541,23 +539,33 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  Intérieur avec accent Weissach
+                  MOTEUR{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  Avec le Pack Weissach, la partie supérieur du tableau de bord
-                  est également récouverte de Race-Tex, une matière testée sur
-                  circuit, qui complète un intérieur résolument épuré et sportif
-                  tout en réduisant les reflets gênants sur le par-brise. Le
-                  logo du Pack Weissach brodé sur les appuie-tête et la
-                  plaquette sur le baguette décorative du tableau de bord en
-                  indiquant encore clairement la provenance.
+                  La Revuelto réécrit entièrement le paradigme technique de
+                  Lamborghini, à commencer par l’emblématique moteur V12 qui
+                  trouve dans la première Lamborghini hybride une occasion
+                  d’évoluer ; pour commencer, il a été pivoté de 180° et
+                  optimisé pour coexister harmonieusement avec trois moteurs
+                  électriques (deux sur l’essieu électrique avant et un derrière
+                  le moteur lui-même). Le changement subi par le moteur V12 est
+                  une véritable révolution : nouveau système de combustion plus
+                  efficace, nouveau système d’échappement qui réduit la
+                  contre-pression à haut régime, nouveau système d’admission qui
+                  améliore le couple et la puissance, nouveau système d’huile et
+                  d’eau, commande de soupapes améliorée avec un nouveau poussoir
+                  radial HLA pour les vitesses élevées et, enfin, une réduction
+                  de poids de -33,5 kg. Le nouveau moteur V12 peut produire une
+                  puissance impressionnante de 825 ch en combinaison avec les
+                  moteurs électriques pour une vitesse maximale de plus de 350
+                  km/h.
                 </p>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </section>
-      <section className="max-w-4xl mx-auto px-4 pt-10">
+      <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
           Consommation et Émissions - Lamborghini Revuelto
         </h2>
@@ -586,7 +594,7 @@ export default function GT3RS() {
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">350 g/km</p>
           </div>
-          <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10 lg:mb-10">
+          <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10  ">
             <div className="text-center">
               <p className="text-white/50 uppercase tracking-wide mb-2">
                 Classe énergétique
@@ -611,14 +619,15 @@ export default function GT3RS() {
         <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
 
         {/* Texte responsive */}
-        <div className="absolute left-1/2 -translate-x-1/2 px-4 text-center top-5 lg:top-10 w-full">
-          <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-            Feel the V12 Engine{" "}
+        <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 top-4 sm:top-6 md:top-8 lg:top-10 text-center lg:max-w-3xl lg:mx-auto">
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-2 lg:mb-4">
+            Feel the V12 Engine
           </h2>
-          <p className="text-white text-lg sm:text-lg md:text-xl lg:text-2xl font-semibold whitespace-pre-line">
+
+          <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold">
             1015 chevaux orchestrés par un V12 atmosphérique et trois moteurs
             électriques.
-            <br className="hidden sm:block" />
+            <br className="hidden lg:block" />
             La Revuelto réinvente la supercar et redéfinit la performance.
           </p>
         </div>

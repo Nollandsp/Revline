@@ -88,7 +88,7 @@ export default function About() {
             </div>
             <div className="bg-white/10 p-6 rounded-xl hover:scale-105 transition-transform duration-300">
               <Image
-                src="/Bugatti.jpg"
+                src="/Bugatti/Bugatti.jpg"
                 alt="Mise à jour infos"
                 width={300}
                 height={200}
