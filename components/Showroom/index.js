@@ -26,7 +26,7 @@ const cars = [
   },
   {
     name: "Bugatti Tourbillon",
-    image: "/Bugatti/BuggatiFront.jpg",
+    image: "/Bugatti/BugattiFront.jpg",
     brand: "Bugatti",
     power: "1 800 ch",
     price: "À partir de 3,8 M €",
