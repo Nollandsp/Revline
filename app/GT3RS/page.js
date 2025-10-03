@@ -374,7 +374,7 @@ export default function GT3RS() {
                     </div>
 
                     {/* Contenu */}
-                    <div className="p-6 overflow-y-auto text-gray-800 flex flex-col items-center">
+                    <div className="p-6 overflow-y-auto text-gray-800 flex flex-col items-center bg-gray-100">
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image

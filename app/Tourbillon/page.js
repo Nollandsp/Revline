@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 import { useInView } from "react-intersection-observer";
-import RevueltoButton from "@/components/ui/buttonRevuelto";
+import BugattiButton from "@/components/ui/buttonBugatti";
 
 const product = {
   price: "À partir de 3 800 000 €",
@@ -113,10 +113,10 @@ export default function GT3RS() {
     <>
       <Header />
 
-      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:-mt-5">
+      <section className="max-w-6xl mx-auto px-6 pt-30 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center lg:-mt-35">
         <div className="relative z-20">
           <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg mb-4">
-            Thermique
+            Hybride
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Bugatti Tourbillon
@@ -132,7 +132,7 @@ export default function GT3RS() {
         {/* Parent caché sur mobile/tablette */}
         <div className="relative flex justify-center items-center w-full lg:max-w-[800px] mx-auto hidden lg:flex">
           <Image
-            src="/Bugatti/Bugattilogo.svg"
+            src="/Bugatti/BugattiLogo.png"
             alt="Bugatti Tourbillon bannière"
             width={500}
             height={300}
@@ -354,13 +354,13 @@ export default function GT3RS() {
           <div className="lg:w-1/2 text-white space-y-10 text-center lg:text-left">
             <div>
               <p className="text-4xl md:text-5xl font-bold">
-                <StatNumber value={2.5} suffix=" s" />
+                <StatNumber value={2} suffix=" s" />
               </p>
               <p className="text-base md:text-lg text-white/70">0 → 100 km/h</p>
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold">
-                <StatNumber value={1015} suffix=" ch" />
+                <StatNumber value={1800} suffix=" ch" />
               </p>
               <p className="text-base md:text-lg text-white/70">
                 Puissance maximale combinée
@@ -368,7 +368,7 @@ export default function GT3RS() {
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold">
-                <StatNumber value={350} suffix=" km/h" />
+                <StatNumber value={445} suffix=" km/h" />
               </p>
               <p className="text-base md:text-lg text-white/70">
                 Vitesse maximale
@@ -408,7 +408,7 @@ export default function GT3RS() {
                   >
                     {/* Header */}
                     <div className="flex flex-col items-start p-6 border-b">
-                      <p className="text-gray-500 mt-1">Lamborghini Revuelto</p>
+                      <p className="text-gray-500 mt-1">Bugatti Tourbillon</p>
                       <h2 className="text-xl font-bold text-gray-900">
                         CARACTÉRISTIQUES TECHNIQUES
                       </h2>
@@ -421,12 +421,12 @@ export default function GT3RS() {
                     </div>
 
                     {/* Contenu */}
-                    <div className="p-6 overflow-y-auto text-gray-800 flex flex-col items-center">
+                    <div className="p-6 overflow-y-auto text-gray-800 flex flex-col items-center bg-gray-100">
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image
-                          src="/Revuelto/Revueltocarac.png"
-                          alt="Porsche 718 Cayman GT4 RS profil"
+                          src="/Bugatti/BugattiCarac.jpg"
+                          alt="Bugatti châssis"
                           width={400}
                           height={250}
                           className="object-contain"
@@ -437,19 +437,19 @@ export default function GT3RS() {
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
                           <p className="text-2xl font-bold">Hauteur</p>
-                          <p className="text-sm text-gray-600">1 160 mm</p>
+                          <p className="text-sm text-gray-600">1 189 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Longueur</p>
-                          <p className="text-sm text-gray-600">4 947 mm</p>
+                          <p className="text-sm text-gray-600">4 671 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Empattement</p>
-                          <p className="text-sm text-gray-600">2 779 mm</p>
+                          <p className="text-sm text-gray-600">2 740 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Largeur</p>
-                          <p className="text-sm text-gray-600">2 266 mm</p>
+                          <p className="text-sm text-gray-600">2 051 mm</p>
                         </div>
                       </div>
                     </div>
@@ -462,8 +462,8 @@ export default function GT3RS() {
           {/* Image */}
           <div className="w-full mt-8 lg:mt-0 flex justify-center">
             <Image
-              src="/Revuelto/Revueltostats.jpg"
-              alt="Porsche Revuelto face avant"
+              src="/Bugatti/BugattiTop.jpg"
+              alt="Bugatti Tourbillon face avant"
               width={1600}
               height={1000}
               className="rounded-xl object-contain w-full max-w-[1400px]"
@@ -477,8 +477,8 @@ export default function GT3RS() {
       {/* === Section piste avec texte === */}
       <section className="w-full relative mb-20">
         <Image
-          src="/Revuelto/Revueltoaero.jpg"
-          alt="Lamborghini Revuelto sur route"
+          src="/Bugatti/BugattiChassis.jpg"
+          alt="Bugatti Tourbillon Feux arrière"
           width={1920}
           height={600}
           className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
@@ -495,15 +495,14 @@ export default function GT3RS() {
         {/* Texte au-dessus du dégradé */}
         <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-32 text-center lg:max-w-3xl lg:mx-auto">
           <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 lg:mb-4">
-            Lignes sculptées pour la performance ultime
+            Belle sous toutes les coutures
           </h2>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
-            La Revuelto adopte une stratégie aérodynamique innovante alliant
-            efficacité, synergie des composants et refroidissement optimisé,
-            <br className="hidden lg:block" />
-            intégrant le design dès le départ. Cette approche offre des
-            performances accrues et des sensations inégalées.
+            « Rien n’est trop beau. » Les mots d’Ettore Bugatti ont guidé la
+            conception du châssis de la TOURBILLON – une œuvre d’art
+            époustouflante, cachée aux regards, qui n’est pas seulement d’une
+            beauté exquise mais aussi d’une solidité immense.
           </p>
         </div>
       </section>
@@ -511,7 +510,7 @@ export default function GT3RS() {
       {/* === Section Packs circuit === */}
       <section className="flex flex-col items-center mb-20 px-4">
         <h2 className="text-center text-white text-xl sm:text-2xl md:text-3xl font-bold mx-auto mb-10 mt-6">
-          Le Cœur Hybride de la Revuelto{" "}
+          Nouveau moteur. Nouvelle ère.{" "}
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full max-w-4xl">
@@ -519,26 +518,54 @@ export default function GT3RS() {
             className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
             onClick={() => setOpenPack1(true)}
           >
-            <Image
-              src="/Revuelto/Revueltotrack.webp"
-              alt="Lamborghini Revuelto sur circuit"
+            <video
+              src="/Bugatti/BugattiEngine.mp4"
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
-              priority
+              autoPlay
+              loop
+              muted
+              playsInline
             />
+
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                L’alliance brute du V12 et de l’hybride{" "}
+                Une puissance incontestable{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
-                Pack
+                Découvrir
               </button>
             </div>
           </div>
 
           {/* Image 2 - Pack Clubsport */}
+          <div
+            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
+            onClick={() => setOpenPack1(true)}
+          >
+            <video
+              src="/Bugatti/Bugatti3D.mp4"
+              width={1920}
+              height={1080}
+              className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+
+            {/* Overlay texte + bouton */}
+            <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
+              <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
+                La maîtrise des matériaux 3D{" "}
+              </h3>
+              <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
+                Découvrir
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Modale Image 1 */}
@@ -568,8 +595,8 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <Image
-                  src="/Revuelto/Revueltoengine.png"
-                  alt="Revuelto engine"
+                  src="/Bugatti/Bugattiengine2.jpg"
+                  alt="Bugatti engine"
                   width={1200}
                   height={600}
                   className="w-full h-full object-cover"
@@ -579,26 +606,68 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  MOTEUR{" "}
+                  Nouveau moteur. Nouvelle ère.{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  La Revuelto réécrit entièrement le paradigme technique de
-                  Lamborghini, à commencer par l’emblématique moteur V12 qui
-                  trouve dans la première Lamborghini hybride une occasion
-                  d’évoluer ; pour commencer, il a été pivoté de 180° et
-                  optimisé pour coexister harmonieusement avec trois moteurs
-                  électriques (deux sur l’essieu électrique avant et un derrière
-                  le moteur lui-même). Le changement subi par le moteur V12 est
-                  une véritable révolution : nouveau système de combustion plus
-                  efficace, nouveau système d’échappement qui réduit la
-                  contre-pression à haut régime, nouveau système d’admission qui
-                  améliore le couple et la puissance, nouveau système d’huile et
-                  d’eau, commande de soupapes améliorée avec un nouveau poussoir
-                  radial HLA pour les vitesses élevées et, enfin, une réduction
-                  de poids de -33,5 kg. Le nouveau moteur V12 peut produire une
-                  puissance impressionnante de 825 ch en combinaison avec les
-                  moteurs électriques pour une vitesse maximale de plus de 350
-                  km/h.
+                  Une voiture incomparable exige un groupe motopropulseur
+                  incomparable. Conçu à partir de zéro et enrichi d’un certain
+                  nombre de technologies issues de la Formule 1, un nouveau
+                  moteur V16 atmosphérique délivre 1 000 chevaux d’une
+                  performance brute et émotionnelle. L’ajout de trois moteurs
+                  électriques, apportant un supplément de puissance de 800 HP,
+                  parachève la motorisation BUGATTI nouvelle génération en
+                  améliorant et en renforçant l’essence émotionnelle du V16
+                  atmosphérique.
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {openPack1 && (
+            <motion.div
+              className="fixed inset-0 bg-black/95 flex flex-col justify-center items-center z-50 px-4 py-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {/* Bouton fermer */}
+              <button
+                onClick={() => setOpenPack1(false)}
+                className="absolute top-6 right-6 text-white text-3xl font-bold z-50"
+              >
+                ×
+              </button>
+
+              {/* Image animée */}
+              <motion.div
+                key="pack-weissach"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
+              >
+                <Image
+                  src="/Bugatti/Bugatti3d.jpg"
+                  alt="Bugatti engine"
+                  width={1200}
+                  height={600}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              {/* Texte en dessous */}
+              <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
+                <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
+                  Nouvelle technologie{" "}
+                </h3>
+                <p className="text-black text-sm sm:text-base md:text-lg">
+                  Le faible poids du véhicule est encore optimisé grâce à
+                  l’impression 3D. L’exploration de cette technologie innovante
+                  permet de créer des pièces de suspension aussi légères que
+                  possible, tout en offrant une résistance élevée à la traction
+                  et en préservant l’endurance ainsi que l’agilité.
                 </p>
               </div>
             </motion.div>
@@ -607,24 +676,25 @@ export default function GT3RS() {
       </section>
       <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
-          Consommation et Émissions - Lamborghini Revuelto
+          Consommation et Émissions - Bugatti Tourbillon
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div>
             <p className="text-white/50 uppercase tracking-wide mb-2">
-              Consommation
+              Consommation électrique
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              26,5 Kwh/100 km
+              ~ 60 km d’autonomie électrique
             </p>
           </div>
+
           <div>
             <p className="text-white/50 uppercase tracking-wide mb-2">
-              Consommation d'énergie
+              Consommation carburant
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              17,9 l/100 km
+              Non homologuée (V16 8,3L)
             </p>
           </div>
 
@@ -632,9 +702,12 @@ export default function GT3RS() {
             <p className="text-white/50 uppercase tracking-wide mb-2">
               Émissions CO₂
             </p>
-            <p className="text-white text-xl sm:text-2xl font-bold">350 g/km</p>
+            <p className="text-white text-xl sm:text-2xl font-bold">
+              ~120 g/km
+            </p>
           </div>
-          <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10  ">
+
+          <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10">
             <div className="text-center">
               <p className="text-white/50 uppercase tracking-wide mb-2">
                 Classe énergétique
@@ -648,8 +721,8 @@ export default function GT3RS() {
       </section>
       <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/Revuelto/Revueltoexhaust.jpg"
-          alt="Porsche GT4 RS sur circuit"
+          src="/Bugatti/BugattiExhaust.jpg"
+          alt="Bugatti Tourbillon"
           fill
           className="object-cover"
           priority
@@ -661,20 +734,19 @@ export default function GT3RS() {
         {/* Texte responsive */}
         <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 top-4 sm:top-6 md:top-8 lg:top-10 text-center lg:max-w-3xl lg:mx-auto">
           <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-2 lg:mb-4">
-            Feel the V12 Engine
+            Ressentez la symphonie du V16{" "}
           </h2>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold">
-            1015 chevaux orchestrés par un V12 atmosphérique et trois moteurs
-            électriques.
+            Plongez au cœur du rugissement du nouveau moteur V16 atmosphérique.
             <br className="hidden lg:block" />
-            La Revuelto réinvente la supercar et redéfinit la performance.
+            Une expérience sonore unique qui incarne puissance et émotion.
           </p>
         </div>
 
         {/* Bouton toujours en bas */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
-          <RevueltoButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
+          <BugattiButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 
