@@ -10,11 +10,11 @@ import Link from "next/link";
 const cars = [
   {
     name: "Ferrari SF90 XX Stradale",
-    image: "/SF90.jpg",
+    image: "/SF90XX/SF90.jpg",
     brand: "Ferrari",
     power: "1015 ch",
     price: "À partir de 700 000 €",
-    slug: "/voitures/ferrari-sf90-xx-stradale",
+    slug: "/SF90XX",
   },
   {
     name: "Lamborghini Revuelto",

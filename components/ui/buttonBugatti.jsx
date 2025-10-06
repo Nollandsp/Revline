@@ -55,7 +55,7 @@ export default function BugattiButton() {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <audio ref={audioRef} src="/Bugatti/Bugattisound2.mp3" preload="auto" />
+      <audio ref={audioRef} src="/Bugatti/BugattiSound2.mp3" preload="auto" />
 
       <button
         className="mt-6 w-full px-6 py-3 border-2 border-white text-white font-bold rounded 
