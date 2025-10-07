@@ -660,7 +660,7 @@ export default function GT3RS() {
             Cadence : 9 000 tours par minute.
           </h2>
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold whitespace-pre-line">
-            Le moteur atmosphérique et le système d’échappement sport
+            Le moteur atmosphérique et le système d’échappement sport{" "}
             <br className="hidden lg:block" />
             garantissent une expérience sonore sans filtre.
           </p>

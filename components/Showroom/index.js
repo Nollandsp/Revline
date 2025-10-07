@@ -42,11 +42,11 @@ const cars = [
   },
   {
     name: "Aston Martin Valhalla",
-    image: "/AstonFront.jpg",
+    image: "/Valhalla/AstonFront.jpeg",
     brand: "Aston Martin",
     power: "1064 ch",
     price: "À partir de 950 000 €",
-    slug: "/voitures/ferrari-sf90-xx-stradale", // 👈 page de détail
+    slug: "/Valhalla", // 👈 page de détail
   },
 ];
 

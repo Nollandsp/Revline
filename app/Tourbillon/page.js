@@ -543,7 +543,7 @@ export default function GT3RS() {
           {/* Image 2 - Pack Clubsport */}
           <div
             className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
-            onClick={() => setOpenPack1(true)}
+            onClick={() => setOpenPack2(true)}
           >
             <video
               src="/Bugatti/Bugatti3D.mp4"
@@ -587,7 +587,7 @@ export default function GT3RS() {
 
               {/* Image animée */}
               <motion.div
-                key="pack-weissach"
+                key="pack1"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -624,7 +624,7 @@ export default function GT3RS() {
           )}
         </AnimatePresence>
         <AnimatePresence>
-          {openPack1 && (
+          {openPack2 && (
             <motion.div
               className="fixed inset-0 bg-black/95 flex flex-col justify-center items-center z-50 px-4 py-8"
               initial={{ opacity: 0 }}
@@ -633,7 +633,7 @@ export default function GT3RS() {
             >
               {/* Bouton fermer */}
               <button
-                onClick={() => setOpenPack1(false)}
+                onClick={() => setOpenPack2(false)}
                 className="absolute top-6 right-6 text-white text-3xl font-bold z-50"
               >
                 ×
@@ -641,7 +641,7 @@ export default function GT3RS() {
 
               {/* Image animée */}
               <motion.div
-                key="pack-weissach"
+                key="pack2"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}

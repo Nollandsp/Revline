@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 import { useInView } from "react-intersection-observer";
-import BugattiButton from "@/components/ui/buttonBugatti";
+import SF90XXButton from "@/components/ui/buttonSF90XX";
 
 const product = {
   price: "À partir de 700 000 €",
@@ -394,7 +394,9 @@ export default function GT3RS() {
                   >
                     {/* Header */}
                     <div className="flex flex-col items-start p-6 border-b">
-                      <p className="text-gray-500 mt-1">Bugatti Tourbillon</p>
+                      <p className="text-gray-500 mt-1">
+                        Ferrari SF90XX Stradale
+                      </p>
                       <h2 className="text-xl font-bold text-gray-900">
                         CARACTÉRISTIQUES TECHNIQUES
                       </h2>
@@ -411,8 +413,8 @@ export default function GT3RS() {
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image
-                          src="/Bugatti/BugattiCarac.jpg"
-                          alt="Bugatti châssis"
+                          src="/SF90XX/SF90XXcarac.jpg"
+                          alt="SF90XX châssis"
                           width={400}
                           height={250}
                           className="object-contain"
@@ -423,19 +425,19 @@ export default function GT3RS() {
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
                           <p className="text-2xl font-bold">Hauteur</p>
-                          <p className="text-sm text-gray-600">1 189 mm</p>
+                          <p className="text-sm text-gray-600">1 225 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Longueur</p>
-                          <p className="text-sm text-gray-600">4 671 mm</p>
+                          <p className="text-sm text-gray-600">4 850 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Empattement</p>
-                          <p className="text-sm text-gray-600">2 740 mm</p>
+                          <p className="text-sm text-gray-600">2 650 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Largeur</p>
-                          <p className="text-sm text-gray-600">2 051 mm</p>
+                          <p className="text-sm text-gray-600">2 000 mm</p>
                         </div>
                       </div>
                     </div>
@@ -529,7 +531,7 @@ export default function GT3RS() {
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                La perfection réside dans les détails{" "}
+                Groupe propulseur{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
                 Découvrir
@@ -543,7 +545,7 @@ export default function GT3RS() {
             onClick={() => setOpenPack2(true)}
           >
             <Image
-              src="/SF90XX/SF90XXengine2.avif"
+              src="/SF90XX/SF90XXaero.webp"
               alt="Porsche GT3 RS autre pack"
               width={1920}
               height={1080}
@@ -553,10 +555,10 @@ export default function GT3RS() {
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Pack Clubsport
+                Un aéro dynamisme incomparable
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
-                Pack
+                Découvrir
               </button>
             </div>
           </div>
@@ -589,8 +591,8 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <Image
-                  src="/SF90XX/SF90XXengine2.avif"
-                  alt="Pack Weissach"
+                  src="/SF90XX/SF90XXspeed.avif"
+                  alt="SF90XX Groupe propulseur"
                   width={1200}
                   height={600}
                   className="w-full h-full object-cover"
@@ -600,17 +602,17 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  Pack Weissach
+                  La perfection réside dans les détails{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  Dans la course au millième de seconde, chaque gramme compte.
-                  Le Pack Weissach en option réduit encore le poids de presque
-                  15 kg. À l’intérieur, l’arceau de sécurité arrière en carbone
-                  apparent (finition satinée) rappelle l’ambition du modèle et
-                  assure une protection supplémentaire sur circuit. Également en
-                  PRFC, les stabilisateurs des essieux avant et arrière, les
-                  barres d’accouplement sur l’essieu arrière et la plaque de
-                  cisaillement contribuent à atteindre un poids idéal.
+                  La SF90XX Stradale a hérité de la configuration PHEV
+                  caractéristique de la SF90 Stardale, dans laquelle le moteur à
+                  combustion interne V8 est intégré à trois moteurs électriques
+                  : deux indépendants sur l'essieu avant et un situé entre le
+                  moteur et la boîte de vitesses à l'arrière. Cette
+                  configuration permet à la voiture de libérer un maximum de
+                  1030 CH (30 ch de plus que la SF90 Stardale), établissant
+                  ainsi une nouvelle référence de performance pour Ferrari.
                 </p>
               </div>
             </motion.div>
@@ -643,26 +645,33 @@ export default function GT3RS() {
                 transition={{ duration: 0.3 }}
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
-                <Image
-                  src="/GT3RS/GT3RSclub.avif"
-                  alt="Pack Clubsport"
+                <video
+                  src="/SF90XX/SF90XXAero.mp4"
+                  autoPlay
+                  loop
+                  playsInline
                   width={1200}
                   height={600}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-t-lg"
+                  alt="Pack Clubsport"
                 />
               </motion.div>
 
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 ">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  Pack Clubsport
+                  UNE AILE « XX » AUTHENTIQUE{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  Le Pack Clubsport disponible sans supplément ajoute un arceau
-                  de sécurité en acier, boulonné à la carrosserie et peint au
-                  choix en Noir ou en Rouge Indien, derrière les sièges avant.
-                  Un harnais 6 points contribue également à renforcer la
-                  sécurité du pilote.
+                  L’élément caractéristique de la SF90 XX Stradale est l’aile
+                  fixe arrière, fruit de recherches approfondies menées sur les
+                  modèles XX. Parfaitement intégrée aux volumes de la voiture
+                  grâce à la collaboration avec le Styling Centre de Ferrari,
+                  elle optimise l’interaction du champ de pression avec le
+                  système complexe du shut-off Gurney. Ce dernier, redessiné,
+                  offre deux configurations : LD (Low Drag) pour réduire la
+                  traînée et HD (High Downforce) pour maximiser la déportance,
+                  générant jusqu’à 530 kg à 250 km/h.
                 </p>
               </div>
             </motion.div>
@@ -671,7 +680,7 @@ export default function GT3RS() {
       </section>
       <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
-          Consommation et Émissions - Bugatti Tourbillon
+          Consommation et Émissions - Ferrari SF90 XX Stradale
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
@@ -714,8 +723,8 @@ export default function GT3RS() {
       </section>
       <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/Bugatti/BugattiExhaust.jpg"
-          alt="Bugatti Tourbillon"
+          src="/SF90XX/SF90XXexhaust.jpeg"
+          alt="Ferrai SF90XX Stardale"
           fill
           className="object-cover"
           priority
@@ -727,19 +736,20 @@ export default function GT3RS() {
         {/* Texte responsive */}
         <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 top-4 sm:top-6 md:top-8 lg:top-10 text-center lg:max-w-3xl lg:mx-auto">
           <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-2 lg:mb-4">
-            Ressentez la symphonie du V16{" "}
+            Fusion parfaite entre puissance et technologie
           </h2>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold">
-            Plongez au cœur du rugissement du nouveau moteur V16 atmosphérique.
+            Le V8 hybride de la SF90 XX Stradale offre un rugissement unique.
             <br className="hidden lg:block" />
-            Une expérience sonore unique qui incarne puissance et émotion.
+            Ressentez l’équilibre entre performance extrême et sophistication
+            mécanique.
           </p>
         </div>
 
         {/* Bouton toujours en bas */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
-          <BugattiButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
+          <SF90XXButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 
