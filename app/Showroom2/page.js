@@ -25,7 +25,7 @@ export default function Showroom() {
     {
       id: 1,
       name: "koenigsegg Jesko Attack",
-      image: "/Jesko/JeskoSide.jpg",
+      image: "/Jesko/JeskoSide.webp",
       brand: "koenigsegg",
       power: "1015 ch",
       price: "À partir de 700 000 €",
@@ -43,7 +43,7 @@ export default function Showroom() {
     {
       id: 3,
       name: "koenigsegg Jesko Attack",
-      image: "/Jesko/JeskoSide.jpg",
+      image: "/Jesko/JeskoSide.webp",
       brand: "koenigsegg",
       power: "1 800 ch",
       price: "À partir de 3,8 M €",
