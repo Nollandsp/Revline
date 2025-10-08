@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 import { useInView } from "react-intersection-observer";
 import SF90XXButton from "@/components/ui/buttonSF90XX";
+import ValhallaButton from "@/components/ui/buttonValhalla";
 
 const product = {
   price: "À partir de 950 000 €",
@@ -472,7 +473,7 @@ export default function GT3RS() {
       <section className="w-full relative mb-20">
         <video
           src="/Valhalla/AstonDesign.mp4"
-          alt="Bugatti Tourbillon Feux arrière"
+          alt="Aston Martin Valhalla design"
           autoPlay
           loop
           playsInline
@@ -480,7 +481,6 @@ export default function GT3RS() {
           width={1920}
           height={600}
           className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
-          priority
         />
 
         {/* Dégradé noir sous le texte */}
@@ -518,18 +518,21 @@ export default function GT3RS() {
             className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
             onClick={() => setOpenPack1(true)}
           >
-            <Image
-              src="/SF90XX/SF90XXengine.webp"
-              alt="SF90XX Engine"
+            <video
+              src="/Valhalla/AstonEngine.mp4"
+              alt="Aston Martin Valhalla moteur"
+              autoPlay
+              loop
+              playsInline
+              muted
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
-              priority
             />
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Groupe propulseur{" "}
+                Un groupe propulseur, trois moteurs.{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
                 Découvrir
@@ -543,8 +546,8 @@ export default function GT3RS() {
             onClick={() => setOpenPack2(true)}
           >
             <Image
-              src="/SF90XX/SF90XXaero.webp"
-              alt="Porsche GT3 RS autre pack"
+              src="/Valhalla/AstonChassis.jpg"
+              alt="Aston Martin Valhalla châssis"
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
@@ -553,7 +556,7 @@ export default function GT3RS() {
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Un aéro dynamisme incomparable
+                Un châssis taillé pour la performance{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
                 Découvrir
@@ -588,9 +591,13 @@ export default function GT3RS() {
                 transition={{ duration: 0.3 }}
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
-                <Image
-                  src="/SF90XX/SF90XXspeed.avif"
-                  alt="SF90XX Groupe propulseur"
+                <video
+                  src="/Valhalla/AstonEngine2.mp4"
+                  autoPlay
+                  loop
+                  playsInline
+                  muted
+                  alt="Aston Martin Valhalla moteur"
                   width={1200}
                   height={600}
                   className="w-full h-full object-cover"
@@ -600,17 +607,16 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 t">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  La perfection réside dans les détails{" "}
+                  L’ingénierie au service de l’émotion{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  La SF90XX Stradale a hérité de la configuration PHEV
-                  caractéristique de la SF90 Stardale, dans laquelle le moteur à
-                  combustion interne V8 est intégré à trois moteurs électriques
-                  : deux indépendants sur l'essieu avant et un situé entre le
-                  moteur et la boîte de vitesses à l'arrière. Cette
-                  configuration permet à la voiture de libérer un maximum de
-                  1030 CH (30 ch de plus que la SF90 Stardale), établissant
-                  ainsi une nouvelle référence de performance pour Ferrari.
+                  Le moteur V8 biturbo de 4,0 L, le plus puissant jamais monté
+                  sur une Aston Martin, est associé à trois moteurs électriques
+                  pour une puissance totale de 1 064 ch. Grâce à sa conception à
+                  carter sec, ses turbocompresseurs à double spirale et ses
+                  refroidisseurs d’air haute performance, la Valhalla atteint
+                  une vitesse maximale de 350 km/h tout en optimisant chaque
+                  instant de combustion.
                 </p>
               </div>
             </motion.div>
@@ -644,7 +650,7 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <video
-                  src="/SF90XX/SF90XXAero.mp4"
+                  src="/Valhalla/AstonChassis2.mp4"
                   autoPlay
                   loop
                   playsInline
@@ -658,18 +664,19 @@ export default function GT3RS() {
               {/* Texte en dessous */}
               <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 ">
                 <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  UNE AILE « XX » AUTHENTIQUE{" "}
+                  Exactement comme en F1®{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  L’élément caractéristique de la SF90 XX Stradale est l’aile
-                  fixe arrière, fruit de recherches approfondies menées sur les
-                  modèles XX. Parfaitement intégrée aux volumes de la voiture
-                  grâce à la collaboration avec le Styling Centre de Ferrari,
-                  elle optimise l’interaction du champ de pression avec le
-                  système complexe du shut-off Gurney. Ce dernier, redessiné,
-                  offre deux configurations : LD (Low Drag) pour réduire la
-                  traînée et HD (High Downforce) pour maximiser la déportance,
-                  générant jusqu’à 530 kg à 250 km/h.
+                  Valhalla utilise également une suspension avant à biellettes
+                  dérivée de la course, visible à travers la carrosserie en
+                  fibre de carbone, avec des ressorts et des amortisseurs montés
+                  à l'intérieur. Montée à l'intérieur, elle déplace les
+                  amortisseurs hors du flux d'air vers l'intérieur de la roue
+                  avant - tout comme nos voitures de F1®, améliorant ainsi le
+                  flux de refroidissement vers les refroidisseurs latéraux
+                  arrière. Associée à une suspension arrière plus
+                  conventionnelle à 5 bras, elle offre au conducteur les
+                  performances d'une hypercar à moteur central.
                 </p>
               </div>
             </motion.div>
@@ -678,7 +685,7 @@ export default function GT3RS() {
       </section>
       <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
-          Consommation et Émissions - Ferrari SF90 XX Stradale
+          Consommation et Émissions - Aston Martin Valhalla
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
@@ -687,7 +694,7 @@ export default function GT3RS() {
               Consommation électrique
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              132 WH/KM
+              Inconnu WH/KM
             </p>
           </div>
 
@@ -696,7 +703,7 @@ export default function GT3RS() {
               Consommation carburant
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              10,0 L/100km
+              Inconnu /100km
             </p>
           </div>
 
@@ -704,7 +711,7 @@ export default function GT3RS() {
             <p className="text-white/50 uppercase tracking-wide mb-2">
               Émissions CO₂
             </p>
-            <p className="text-white text-xl sm:text-2xl font-bold">228 g/km</p>
+            <p className="text-white text-xl sm:text-2xl font-bold">200 g/km</p>
           </div>
 
           <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10">
@@ -721,8 +728,8 @@ export default function GT3RS() {
       </section>
       <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/SF90XX/SF90XXexhaust.jpeg"
-          alt="Ferrai SF90XX Stardale"
+          src="/Valhalla/AstonExhaust.webp"
+          alt="Aston Martin Valhalla échappement"
           fill
           className="object-cover"
           priority
@@ -738,16 +745,16 @@ export default function GT3RS() {
           </h2>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-2xl font-semibold">
-            Le V8 hybride de la SF90 XX Stradale offre un rugissement unique.
+            Sentez chaque vibration, chaque explosion du moteur de la Valhalla.
             <br className="hidden lg:block" />
-            Ressentez l’équilibre entre performance extrême et sophistication
-            mécanique.
+            Un son qui incarne la vitesse, la puissance et l’exclusivité Aston
+            Martin.
           </p>
         </div>
 
         {/* Bouton toujours en bas */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
-          <SF90XXButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
+          <ValhallaButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 

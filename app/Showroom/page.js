@@ -8,9 +8,19 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 
 export default function Showroom() {
   const [filters, setFilters] = useState({ brand: "", order: "asc" });
+  const [currentPage, setCurrentPage] = useState(1); // <-- Ajoute cette ligne
 
   const vehicles = [
     {
@@ -143,6 +153,29 @@ export default function Showroom() {
             ))}
           </AnimatePresence>
         </div>
+      </section>
+      <section className="mt-8 flex justify-center">
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious href="/Showroom" />
+            </PaginationItem>
+
+            <PaginationItem>
+              <PaginationLink href="/Showroom" isActive>
+                1
+              </PaginationLink>
+            </PaginationItem>
+
+            <PaginationItem>
+              <PaginationLink href="/Showroom2">2</PaginationLink>
+            </PaginationItem>
+
+            <PaginationItem>
+              <PaginationNext href="/Showroom2" />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
       </section>
       <Footer />
     </>
