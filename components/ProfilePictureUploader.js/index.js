@@ -9,7 +9,7 @@ export default function ProfilePictureUploader({ userId }) {
 
   // Supercar par défaut (URL fixe et valide)
   const defaultSupercar =
-    "https://images.unsplash.com/photo-1614072105509-8d4e8c6e2b8b?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHN1cGVyY2FyfGVufDB8fHx8fDE2NjE4NzQwNzA&ixlib=rb-1.2.1&q=80&w=1080";
+    "ttps://images.unsplash.com/photo-1614072105509-8d4e8c6e2b8b?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHN1cGVyY2FyfGVufDB8fHx8fDE2NjE4NzQwNzA&ixlib=rb-1.2.1&q=80&w=1080";
 
   // Récupérer l'avatar actuel depuis la table profiles
   const fetchAvatar = async () => {
