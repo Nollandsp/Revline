@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import {
@@ -88,9 +89,10 @@ export default function Connexion() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-black gap-6 px-4 relative">
       <Link
         href="/"
-        className="absolute top-2 left-2 sm:left-4 text-white text-base sm:text-xl flex items-center gap-1"
+        className="absolute top-4 left-4 flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2 rounded-lg shadow-md transition"
       >
-        ← Retour
+        <ArrowLeft size={20} />
+        Retour
       </Link>
 
       <Link href="/">

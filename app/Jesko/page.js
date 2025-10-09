@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 import { useInView } from "react-intersection-observer";
-import SF90XXButton from "@/components/ui/buttonSF90XX";
+import JeskoButton from "@/components/ui/buttonJesko";
 
 const product = {
-  price: "À partir de 700 000 €",
+  price: "À partir de 3 000 000 €",
   images: [
     {
       src: "/Jesko/JeskoSide.webp",
@@ -17,42 +17,40 @@ const product = {
     },
     {
       src: "/Jesko/JeskoFront.jpg",
-      alt: "Ferrari SF90 XX Stradale vue avant",
+      alt: "Koenigsegg Jesko Attack vue de face",
     },
     {
-      src: "/Jesko/JeskoBack.jpg",
-      alt: "Ferrari SF90 XX Stradale vue du dessus",
+      src: "/Jesko/JeskoSide2.webp",
+      alt: "Koenigsegg Jesko Attack vue de côté",
     },
     {
       src: "/Jesko/JeskoRide.jpg",
-      alt: "Ferrari SF90 XX Stradale vue arrière",
+      alt: "Koenigsegg Jesko Attack en action",
     },
     {
       src: "/Jesko/JeskoInterior.jpg",
-      alt: "Ferrari SF90 XX Stradale intérieur",
+      alt: "Koenigsegg Jesko Attack intérieur",
     },
     {
       src: "/Jesko/JeskoInterior2.jpg",
-      alt: "Ferrari SF90 XX Stradale intérieur",
+      alt: "Koenigsegg Jesko Attack intérieur",
     },
   ],
 
   description:
-    "La Ferrari SF90 XX Stradale est une supercar hybride rechargeable d’exception, alliant un moteur V8 biturbo de 4,0 L et trois moteurs électriques pour délivrer une puissance combinée de 1 030 ch. Pensée pour offrir des performances extrêmes sur circuit comme sur route, elle incarne la fusion entre technologie, aérodynamique radicale et sensibilité mécanique.",
-
+    "La Koenigsegg Jesko Attack est une hypercar radicale orientée piste, conçue pour générer une charge aérodynamique extrême sans sacrifier les performances pures. Dotée d’un V8 biturbo 5,0 L développé en interne et d’une transmission révolutionnaire à haut rendement, elle délivre jusqu’à 1 600 ch en mode E85. Sa carrosserie sculptée, son appui aérodynamique pouvant atteindre 1 400 kg, ainsi que son agilité exceptionnelle font d’elle une machine hors pair entre circuit et route.",
   highlights: [
-    "Moteur V8 4,0 L biturbo – 797 ch",
-    "Trois moteurs électriques – 233 ch supplémentaires",
-    "Puissance totale : 1 030 ch",
-    "Transmission automatique F1 DCT 8 vitesses",
-    "Aérodynamique optimisée avec ailes fixes et appuis actifs",
-    "Châssis léger en fibre de carbone et aluminium",
+    "Moteur V8 5,0 L biturbo – jusqu’à 1 600 ch (E85)",
+    "Boîte de vitesses Light Speed Transmission à 9 rapports",
+    "Aérodynamique active – 1 400 kg d’appui à 250 km/h",
+    "Châssis monocoque en fibre de carbone ultraléger",
+    "Suspension Triplex Koenigsegg active avant/arrière",
+    "Vitesse maximale théorique : 480 km/h+",
     "0 → 100 km/h en 2,3 s",
-    "Vitesse maximale : 320 km/h",
+    "Aileron arrière fixe optimisé pour le circuit",
   ],
-
   details:
-    "La Ferrari SF90 XX Stradale repousse les limites du design et de la performance. Son moteur V8 biturbo, associé à un système hybride sophistiqué, délivre une puissance combinée de 1 030 ch. Ses innovations aérodynamiques – telles qu’une aile arrière fixe, des profils géométriques audacieux et un habitacle repensé – augmentent l’appui et la stabilité à haute vitesse. Cette voiture incarne l’équilibre entre performance de piste et homologation route, pour une expérience de conduite plus intense et raffinée que jamais.",
+    "La Jesko Attack est l’expression ultime de la technologie Koenigsegg appliquée à la performance pure. Son moteur V8 biturbo de 5,0 litres est couplé à une boîte de vitesses révolutionnaire à neuf rapports sans synchros, permettant des changements instantanés. Grâce à son aérodynamique poussée – générant jusqu’à 1 400 kg d’appui – et son châssis en carbone, elle redéfinit les limites de l’adhérence et de la maniabilité. Le modèle ‘Attack’ est spécifiquement conçu pour la piste, tandis que la version Absolut privilégie la vitesse maximale. La Jesko incarne la vision d’un hypercar sans compromis, alliant puissance, légèreté et innovation mécanique extrême.",
 };
 
 // === Composant compteur animé ===
@@ -345,7 +343,7 @@ export default function GT3RS() {
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold">
-                <StatNumber value={1030} suffix=" ch" />
+                <StatNumber value={1600} suffix=" ch" />
               </p>
               <p className="text-base md:text-lg text-white/70">
                 Puissance maximale combinée
@@ -353,7 +351,7 @@ export default function GT3RS() {
             </div>
             <div>
               <p className="text-4xl md:text-5xl font-bold">
-                <StatNumber value={320} suffix=" km/h" />
+                <StatNumber value={400} suffix=" km/h" />
               </p>
               <p className="text-base md:text-lg text-white/70">
                 Vitesse maximale
@@ -394,7 +392,7 @@ export default function GT3RS() {
                     {/* Header */}
                     <div className="flex flex-col items-start p-6 border-b">
                       <p className="text-gray-500 mt-1">
-                        Ferrari SF90XX Stradale
+                        Koenigsegg Jesko Attack
                       </p>
                       <h2 className="text-xl font-bold text-gray-900">
                         CARACTÉRISTIQUES TECHNIQUES
@@ -412,8 +410,8 @@ export default function GT3RS() {
                       {/* Image centrée */}
                       <div className="w-full flex justify-center mb-6">
                         <Image
-                          src="/SF90XX/SF90XXcarac.jpg"
-                          alt="SF90XX châssis"
+                          src="/Jesko/JeskoCarac.webp"
+                          alt="Koenigsegg Jesko Attack vue de côté"
                           width={400}
                           height={250}
                           className="object-contain"
@@ -424,19 +422,19 @@ export default function GT3RS() {
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
                           <p className="text-2xl font-bold">Hauteur</p>
-                          <p className="text-sm text-gray-600">1 225 mm</p>
+                          <p className="text-sm text-gray-600">1 210 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Longueur</p>
-                          <p className="text-sm text-gray-600">4 850 mm</p>
+                          <p className="text-sm text-gray-600">4 626 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Empattement</p>
-                          <p className="text-sm text-gray-600">2 650 mm</p>
+                          <p className="text-sm text-gray-600">2 700 mm</p>
                         </div>
                         <div>
                           <p className="text-2xl font-bold">Largeur</p>
-                          <p className="text-sm text-gray-600">2 000 mm</p>
+                          <p className="text-sm text-gray-600">2 030 mm</p>
                         </div>
                       </div>
                     </div>
@@ -450,8 +448,8 @@ export default function GT3RS() {
           <div className="relative w-full mt-8 lg:mt-0 flex justify-center items-center overflow-hidden rounded-xl">
             {/* Image principale */}
             <Image
-              src="/SF90XX/SF90XXstat.jpg"
-              alt="Ferrari SF90 XX Stradale"
+              src="/Jesko/JeskoFront.jpg"
+              alt="Koenigsegg Jesko Attack vue de face"
               width={1600}
               height={1000}
               className="object-cover w-full max-w-[1200px] h-[350px] sm:h-[400px] md:h-[450px] rounded-xl"
@@ -476,8 +474,8 @@ export default function GT3RS() {
       {/* === Section piste avec texte === */}
       <section className="w-full relative mb-20">
         <Image
-          src="/SF90XX/SF90XXdesign.jpg"
-          alt="Bugatti Tourbillon Feux arrière"
+          src="/Jesko/JeskoDesign.webp"
+          alt="Koenigsegg Jesko Attack vue de côté"
           width={1920}
           height={600}
           className="w-full h-[500px] sm:h-[600px] md:h-[700px] object-cover"
@@ -494,16 +492,15 @@ export default function GT3RS() {
         {/* Texte au-dessus du dégradé */}
         <div className="absolute left-1/2 -translate-x-1/2 w-full px-4 bottom-6 sm:bottom-10 md:bottom-16 lg:bottom-32 text-center lg:max-w-3xl lg:mx-auto">
           <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 lg:mb-4">
-            Une sculpture en mouvement{" "}
+            L’ingénierie devenue art
           </h2>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
-            L’audace sculptée par la performance. » Chaque ligne de la SF90 XX
-            Stradale a été façonnée pour exprimer une agression élégante. Des
-            volumes redessinés, un aileron fixe audacieux et des surfaces
-            tendues se combinent pour révéler un langage visuel orienté vers
-            l’efficacité aérodynamique. Ce design n’est pas qu’un simple effet —
-            il symbolise la dualité entre beauté et puissance extrême.
+            Conçue pour dompter l’air, la Jesko Attack incarne la symbiose
+            parfaite entre science et esthétique. Chaque courbe, chaque arête,
+            chaque aileron traduit la recherche obsessionnelle de performance
+            pure. Son design brutal et précis ne cherche pas la beauté — il la
+            crée, à travers la vitesse et l’aérodynamisme.
           </p>
         </div>
       </section>
@@ -511,7 +508,7 @@ export default function GT3RS() {
       {/* === Section Packs circuit === */}
       <section className="flex flex-col items-center mb-20 px-4">
         <h2 className="text-center text-white text-xl sm:text-2xl md:text-3xl font-bold mx-auto mb-10 mt-6">
-          Puissance et aérodynamisme extrême
+          Transmission de la vitesse Lumière{" "}
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full max-w-4xl">
@@ -520,8 +517,8 @@ export default function GT3RS() {
             onClick={() => setOpenPack1(true)}
           >
             <Image
-              src="/SF90XX/SF90XXengine.webp"
-              alt="SF90XX Engine"
+              src="/Jesko/JeskoTransmi.png"
+              alt="Koenigsegg Jesko Attack Transmission"
               width={1920}
               height={1080}
               className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
@@ -530,7 +527,7 @@ export default function GT3RS() {
             {/* Overlay texte + bouton */}
             <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
               <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Groupe propulseur{" "}
+                Transmission révolutionnaire{" "}
               </h3>
               <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
                 Découvrir
@@ -539,28 +536,6 @@ export default function GT3RS() {
           </div>
 
           {/* Image 2 - Pack Clubsport */}
-          <div
-            className="relative cursor-pointer w-full sm:w-1/2 hover:scale-105 transition-transform duration-300"
-            onClick={() => setOpenPack2(true)}
-          >
-            <Image
-              src="/SF90XX/SF90XXaero.webp"
-              alt="Porsche GT3 RS autre pack"
-              width={1920}
-              height={1080}
-              className="w-full h-[180px] sm:h-[250px] md:h-[350px] object-cover rounded-lg"
-              priority
-            />
-            {/* Overlay texte + bouton */}
-            <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 flex flex-col items-start p-2 sm:p-3 rounded">
-              <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2">
-                Un aéro dynamisme incomparable
-              </h3>
-              <button className="bg-red-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-700 transition text-sm sm:text-base">
-                Découvrir
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Modale Image 1 */}
@@ -590,8 +565,8 @@ export default function GT3RS() {
                 className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
               >
                 <Image
-                  src="/SF90XX/SF90XXspeed.avif"
-                  alt="SF90XX Groupe propulseur"
+                  src="/Jesko/JeskoTransmi2.png"
+                  alt="Koenigsegg Jesko Attack Transmission"
                   width={1200}
                   height={600}
                   className="w-full h-full object-cover"
@@ -604,14 +579,18 @@ export default function GT3RS() {
                   La perfection réside dans les détails{" "}
                 </h3>
                 <p className="text-black text-sm sm:text-base md:text-lg">
-                  La SF90XX Stradale a hérité de la configuration PHEV
-                  caractéristique de la SF90 Stardale, dans laquelle le moteur à
-                  combustion interne V8 est intégré à trois moteurs électriques
-                  : deux indépendants sur l'essieu avant et un situé entre le
-                  moteur et la boîte de vitesses à l'arrière. Cette
-                  configuration permet à la voiture de libérer un maximum de
-                  1030 CH (30 ch de plus que la SF90 Stardale), établissant
-                  ainsi une nouvelle référence de performance pour Ferrari.
+                  La transmission à vitesse lumineuse (LST) de Koenigsegg
+                  représente une évolution jamais vue depuis le développement
+                  des doubles embrayages modernes. Le LST se compose de neuf
+                  vitesses avant et de sept embrayages multidisques à bain
+                  d’huile dans un ensemble compact et ultra-léger. Il peut
+                  monter et descendre les vitesses à une vitesse proche de celle
+                  de la lumière grâce à l’ouverture et la fermeture simultanées
+                  des embrayages, offrant une accélération et une décélération
+                  totalement fluides. Le LST permet des changements de vitesse
+                  pratiquement instantanés entre n’importe quelle vitesse avant,
+                  transformant l’impressionnant en véritable innovation
+                  évolutive.
                 </p>
               </div>
             </motion.div>
@@ -619,85 +598,28 @@ export default function GT3RS() {
         </AnimatePresence>
 
         {/* Modale Image 2 */}
-        <AnimatePresence>
-          {openPack2 && (
-            <motion.div
-              className="fixed inset-0 bg-black/95 flex flex-col justify-center items-center z-50 px-4 py-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Bouton fermer */}
-              <button
-                onClick={() => setOpenPack2(false)}
-                className="absolute top-6 right-6 text-white text-3xl font-bold z-50"
-              >
-                ×
-              </button>
-
-              {/* Image animée */}
-              <motion.div
-                key="pack-clubsport"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="w-full max-w-[90vw] sm:max-w-[80vw] rounded-t-lg overflow-hidden h-[30vh] sm:h-[40vh] md:h-[55vh]"
-              >
-                <video
-                  src="/SF90XX/SF90XXAero.mp4"
-                  autoPlay
-                  loop
-                  playsInline
-                  width={1200}
-                  height={600}
-                  className="w-full h-full object-cover rounded-t-lg"
-                  alt="Pack Clubsport"
-                />
-              </motion.div>
-
-              {/* Texte en dessous */}
-              <div className="w-full max-w-[90vw] sm:max-w-[80vw] bg-white p-4 sm:p-6 rounded-b-lg mt-0 ">
-                <h3 className="text-black text-lg sm:text-xl md:text-2xl font-bold mb-2">
-                  UNE AILE « XX » AUTHENTIQUE{" "}
-                </h3>
-                <p className="text-black text-sm sm:text-base md:text-lg">
-                  L’élément caractéristique de la SF90 XX Stradale est l’aile
-                  fixe arrière, fruit de recherches approfondies menées sur les
-                  modèles XX. Parfaitement intégrée aux volumes de la voiture
-                  grâce à la collaboration avec le Styling Centre de Ferrari,
-                  elle optimise l’interaction du champ de pression avec le
-                  système complexe du shut-off Gurney. Ce dernier, redessiné,
-                  offre deux configurations : LD (Low Drag) pour réduire la
-                  traînée et HD (High Downforce) pour maximiser la déportance,
-                  générant jusqu’à 530 kg à 250 km/h.
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </section>
       <section className="max-w-4xl mx-auto px-4 mt-[220px] mb-[220px]">
         <h2 className="text-center text-white text-3xl font-bold mb-10">
-          Consommation et Émissions - Ferrari SF90 XX Stradale
+          Consommation et Émissions - Koenigsegg Jesko Attack
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div>
             <p className="text-white/50 uppercase tracking-wide mb-2">
-              Consommation électrique
+              Consommation combinée
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              132 WH/KM
+              18,1 L/100km
             </p>
           </div>
 
           <div>
             <p className="text-white/50 uppercase tracking-wide mb-2">
-              Consommation carburant
+              Consommation en ville
             </p>
             <p className="text-white text-xl sm:text-2xl font-bold">
-              10,0 L/100km
+              34,3 L/100km
             </p>
           </div>
 
@@ -705,7 +627,7 @@ export default function GT3RS() {
             <p className="text-white/50 uppercase tracking-wide mb-2">
               Émissions CO₂
             </p>
-            <p className="text-white text-xl sm:text-2xl font-bold">228 g/km</p>
+            <p className="text-white text-xl sm:text-2xl font-bold">410 g/km</p>
           </div>
 
           <div className="col-span-1 lg:col-span-3 lg:flex lg:items-center lg:justify-center lg:mt-10">
@@ -722,8 +644,8 @@ export default function GT3RS() {
       </section>
       <section className="mt-[120px] relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/SF90XX/SF90XXexhaust.jpeg"
-          alt="Ferrai SF90XX Stardale"
+          src="/Jesko/jeskoExhaust.webp"
+          alt="Koenigsegg Jesko Attack échappement"
           fill
           className="object-cover"
           priority
@@ -748,7 +670,7 @@ export default function GT3RS() {
 
         {/* Bouton toujours en bas */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-4">
-          <SF90XXButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
+          <JeskoButton className="w-full sm:w-3/4 md:w-2/4 lg:w-auto" />
         </div>
       </section>
 

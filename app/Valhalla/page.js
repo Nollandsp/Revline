@@ -463,6 +463,15 @@ export default function GT3RS() {
               height={1000}
               className="object-cover w-full max-w-[1200px] h-[350px] sm:h-[400px] md:h-[450px] rounded-xl"
             />
+            <div className="absolute inset-0 pointer-events-none z-20">
+              {/* Côtés gauche/droite */}
+              <div className="absolute top-0 left-0 w-[15%] h-full bg-gradient-to-r from-black to-transparent"></div>
+              <div className="absolute top-0 right-0 w-[15%] h-full bg-gradient-to-l from-black to-transparent"></div>
+
+              {/* Haut/bas (si tu veux aussi les cacher un peu) */}
+              <div className="absolute top-0 left-0 w-full h-[10%] bg-gradient-to-b from-black to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-full h-[10%] bg-gradient-to-t from-black to-transparent"></div>
+            </div>
           </div>
 
           {/* Bouton Mobile/Tablet */}

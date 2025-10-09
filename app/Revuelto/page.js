@@ -420,7 +420,7 @@ export default function GT3RS() {
           </div>
 
           {/* Image */}
-          <div className="w-full mt-8 lg:mt-0 flex justify-center">
+          <div className="relative w-full mt-8 lg:mt-0 flex justify-center items-center overflow-hidden rounded-xl">
             <Image
               src="/Revuelto/Revueltostats.jpg"
               alt="Porsche Revuelto face avant"
@@ -428,6 +428,15 @@ export default function GT3RS() {
               height={1000}
               className="rounded-xl object-contain w-full max-w-[1400px]"
             />
+            <div className="absolute inset-0 pointer-events-none z-20">
+              {/* Côtés gauche/droite */}
+              <div className="absolute top-0 left-0 w-[15%] h-full bg-gradient-to-r from-black to-transparent"></div>
+              <div className="absolute top-0 right-0 w-[15%] h-full bg-gradient-to-l from-black to-transparent"></div>
+
+              {/* Haut/bas (si tu veux aussi les cacher un peu) */}
+              <div className="absolute top-0 left-0 w-full h-[10%] bg-gradient-to-b from-black to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-full h-[10%] bg-gradient-to-t from-black to-transparent"></div>
+            </div>
           </div>
 
           {/* Bouton Mobile/Tablet */}

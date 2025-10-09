@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeft } from "lucide-react"; // si lucide-react est installé
+
 import { supabase } from "@/lib/supabase/client";
+import ProfilePictureUploader from "@/components/ProfilePictureUploader";
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 
@@ -199,9 +202,10 @@ export default function Profil() {
         {/* Flèche retour */}
         <Link
           href="/"
-          className="absolute top-2 left-2 sm:left-4 text-white font-bold text-xl flex items-center gap-1"
+          className="absolute top-4 left-4 flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2 rounded-lg shadow-md transition"
         >
-          ← Retour
+          <ArrowLeft size={20} />
+          Retour
         </Link>
 
         {/* Logo */}
@@ -215,7 +219,7 @@ export default function Profil() {
             className="object-contain h-[100px] w-auto"
           />
         </Link>
-
+        <ProfilePictureUploader />
         {/* Messages */}
         {error && <p className="text-red-500">{error}</p>}
         {message && <p className="text-green-500">{message}</p>}

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation"; // ✅ ajouté ici
 import {
   Pagination,
   PaginationContent,
@@ -15,12 +16,11 @@ import {
   PaginationLink,
   PaginationPrevious,
   PaginationNext,
-  PaginationEllipsis,
 } from "@/components/ui/pagination";
 
 export default function Showroom() {
   const [filters, setFilters] = useState({ brand: "", order: "asc" });
-  const [currentPage, setCurrentPage] = useState(1); // <-- Ajoute cette ligne
+  const pathname = usePathname(); // ✅ pour détecter la page active
 
   const vehicles = [
     {
@@ -154,7 +154,9 @@ export default function Showroom() {
           </AnimatePresence>
         </div>
       </section>
-      <section className="mt-8 flex justify-center">
+
+      {/* ✅ Pagination avec détection dynamique */}
+      <section className="mt-8 mb-8 flex justify-center">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
@@ -162,13 +164,21 @@ export default function Showroom() {
             </PaginationItem>
 
             <PaginationItem>
-              <PaginationLink href="/Showroom" isActive>
+              <PaginationLink
+                href="/Showroom"
+                isActive={pathname === "/Showroom"}
+              >
                 1
               </PaginationLink>
             </PaginationItem>
 
             <PaginationItem>
-              <PaginationLink href="/Showroom2">2</PaginationLink>
+              <PaginationLink
+                href="/Showroom2"
+                isActive={pathname === "/Showroom2"}
+              >
+                2
+              </PaginationLink>
             </PaginationItem>
 
             <PaginationItem>
@@ -177,6 +187,7 @@ export default function Showroom() {
           </PaginationContent>
         </Pagination>
       </section>
+
       <Footer />
     </>
   );

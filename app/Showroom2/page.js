@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation"; // ✅ ajouté ici
 import {
   Pagination,
   PaginationContent,
@@ -15,21 +16,21 @@ import {
   PaginationLink,
   PaginationPrevious,
   PaginationNext,
-  PaginationEllipsis,
 } from "@/components/ui/pagination";
 
-export default function Showroom() {
+export default function Showroom2() {
   const [filters, setFilters] = useState({ brand: "", order: "asc" });
+  const pathname = usePathname(); // ✅ pour la page active
 
   const vehicles = [
     {
       id: 1,
-      name: "koenigsegg Jesko Attack",
+      name: "Koenigsegg Jesko Attack",
       image: "/Jesko/JeskoSide.webp",
-      brand: "koenigsegg",
-      power: "1015 ch",
-      price: "À partir de 700 000 €",
-      slug: "/SF90XX",
+      brand: "Koenigsegg",
+      power: "1600 ch",
+      price: "À partir de 3 M €",
+      slug: "/Jesko",
     },
     {
       id: 2,
@@ -39,42 +40,6 @@ export default function Showroom() {
       power: "1015 ch",
       price: "À partir de 500 000 €",
       slug: "/Revuelto",
-    },
-    {
-      id: 3,
-      name: "koenigsegg Jesko Attack",
-      image: "/Jesko/JeskoSide.webp",
-      brand: "koenigsegg",
-      power: "1 800 ch",
-      price: "À partir de 3,8 M €",
-      slug: "/Jesko",
-    },
-    {
-      id: 4,
-      name: "718 Cayman GT4 RS",
-      image: "/GT4RS/GT4RS.webp",
-      brand: "Porsche",
-      power: "500 ch",
-      price: "À partir de 162 500 €",
-      slug: "/GT4RS",
-    },
-    {
-      id: 5,
-      name: "Aston Martin Valhalla",
-      image: "/Valhalla/AstonFront.jpeg",
-      brand: "Aston Martin",
-      power: "1064 ch",
-      price: "À partir de 950 000 €",
-      slug: "/Valhalla",
-    },
-    {
-      id: 6,
-      name: "Porsche 911 GT3 RS",
-      image: "/GT3RS/GT3RS.webp",
-      brand: "Porsche",
-      power: "525 ch",
-      price: "À partir de 253 452,00 €",
-      slug: "/GT3RS",
     },
   ];
 
@@ -104,7 +69,7 @@ export default function Showroom() {
           </button>
         </div>
 
-        {/* Grille véhicules avec transitions smooth */}
+        {/* Grille véhicules */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
           <AnimatePresence>
             {filteredVehicles.map((car) => (
@@ -153,7 +118,9 @@ export default function Showroom() {
           </AnimatePresence>
         </div>
       </section>
-      <section className="mt-8 flex justify-center">
+
+      {/* ✅ Pagination dynamique */}
+      <section className="mt-8 mb-8 flex justify-center">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
@@ -161,13 +128,21 @@ export default function Showroom() {
             </PaginationItem>
 
             <PaginationItem>
-              <PaginationLink href="/Showroom" isActive>
+              <PaginationLink
+                href="/Showroom"
+                isActive={pathname === "/Showroom"}
+              >
                 1
               </PaginationLink>
             </PaginationItem>
 
             <PaginationItem>
-              <PaginationLink href="/Showroom2">2</PaginationLink>
+              <PaginationLink
+                href="/Showroom2"
+                isActive={pathname === "/Showroom2"}
+              >
+                2
+              </PaginationLink>
             </PaginationItem>
 
             <PaginationItem>
@@ -176,6 +151,7 @@ export default function Showroom() {
           </PaginationContent>
         </Pagination>
       </section>
+
       <Footer />
     </>
   );
