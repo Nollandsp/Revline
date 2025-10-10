@@ -120,11 +120,11 @@ export default function Navbar() {
 
           {/* Boutons desktop */}
           <div className="flex gap-3">
-            <a href="mailto:onlyprem.pro17@gmail.com">
+            <Link href="/Contact">
               <Button className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600">
                 Contact
               </Button>
-            </a>
+            </Link>
             {user ? (
               <Button
                 className="bg-transparent text-white border border-white hover:bg-red-600 hover:border-red-600"
@@ -184,14 +184,9 @@ export default function Navbar() {
               </Link>
             </li>
           )}
-          <li>
-            <a
-              href="mailto:onlyprem.pro17@gmail.com"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </a>
-          </li>
+          <Link href="/Contact" onClick={() => setIsOpen(false)}>
+            <li>Contact</li>
+          </Link>
         </ul>
       </div>
     </nav>

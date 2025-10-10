@@ -5,9 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react"; // si lucide-react est installé
-
 import { supabase } from "@/lib/supabase/client";
-import ProfilePictureUploader from "@/components/ProfilePictureUploader";
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 
@@ -219,7 +217,6 @@ export default function Profil() {
             className="object-contain h-[100px] w-auto"
           />
         </Link>
-        <ProfilePictureUploader />
         {/* Messages */}
         {error && <p className="text-red-500">{error}</p>}
         {message && <p className="text-green-500">{message}</p>}

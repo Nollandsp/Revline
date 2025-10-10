@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -27,13 +28,14 @@ export default function Footer() {
 
           <div>
             <h4 className="text-white font-semibold mb-2">Rendez-vous</h4>
-
-            <Button
-              className=" font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
-              variant="outline"
-            >
-              Nous contacter
-            </Button>
+            <Link href="/Contact">
+              <Button
+                className=" font-bold px-5 border border-white text-white bg-transparent hover:bg-red-600 hover:text-white transition-colors duration-300"
+                variant="outline"
+              >
+                Nous contacter
+              </Button>
+            </Link>
           </div>
         </div>
       </footer>
