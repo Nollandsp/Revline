@@ -29,26 +29,19 @@ export default function Inscription() {
 
   // ✅ fonction pour Mailchimp
   async function subscribeToMailchimp(email, firstName) {
-    const API_KEY = "process.env.MAILCHIMP_API_KEY";
-    const LIST_ID = "process.env.MAILCHIMP_LIST_ID";
-    const DATACENTER = API_KEY.split("-")[1]; // ex: us21
-
-    const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`;
-
-    const response = await fetch(url, {
+    const res = await fetch("/api/subscribe", {
       method: "POST",
-      headers: {
-        Authorization: `apikey ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email_address: email,
-        status: "subscribed", // ou "pending" pour double opt-in
-        merge_fields: { FNAME: firstName },
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, firstName }),
     });
 
-    return await response.json();
+    if (!res.ok) {
+      const error = await res.json();
+      console.error("Erreur Mailchimp:", error);
+      throw new Error(error.error || "Erreur d'inscription à la newsletter");
+    }
+
+    return await res.json();
   }
 
   const handleSubmit = async (e) => {
