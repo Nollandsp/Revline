@@ -1,48 +1,40 @@
-// app/api/subscribe/route.js
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
     const { email, firstName } = await req.json();
 
-    const API_KEY = process.env.MAILCHIMP_API_KEY;
-    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
+    const API_KEY = process.env.BREVO_API_KEY;
 
-    if (!API_KEY || !LIST_ID) {
-      return new Response(
-        JSON.stringify({ error: "Mailchimp non configuré" }),
-        { status: 500 }
-      );
-    }
-
-    const DATACENTER = API_KEY.split("-")[1];
-    const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`;
-
-    const response = await fetch(url, {
+    // 📨 Appel à l’API Brevo
+    const response = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
-        Authorization: `apikey ${API_KEY}`,
-        "Content-Type": "application/json",
+        accept: "application/json",
+        "api-key": API_KEY,
+        "content-type": "application/json",
       },
       body: JSON.stringify({
-        email_address: email,
-        status: "subscribed",
-        merge_fields: { FNAME: firstName || "" },
+        email,
+        attributes: { FIRSTNAME: firstName },
+        listIds: [2], // ⚠️ remplace par ton ID de liste Brevo
+        updateEnabled: true,
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      return new Response(JSON.stringify({ error: data }), { status: 400 });
+      console.error("Erreur Brevo :", data);
+      return NextResponse.json(
+        { error: "Erreur lors de l’inscription à la newsletter." },
+        { status: 400 }
+      );
     }
 
-    return new Response(JSON.stringify({ success: true, data }), {
-      status: 200,
-    });
+    return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Erreur /api/subscribe:", err);
-    return new Response(JSON.stringify({ error: "Erreur serveur" }), {
-      status: 500,
-    });
+    console.error("Erreur API:", err);
+    return NextResponse.json({ error: "Erreur interne." }, { status: 500 });
   }
 }

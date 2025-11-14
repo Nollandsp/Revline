@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -115,7 +116,10 @@ export default function About() {
               </h3>
               <p className="text-white/70">
                 Inscrivez-vous et recevez les dernières infos et sorties
-                directement par email.
+                directement par email.{" "}
+                <Link href="/Profil" className="text-red-500 underline">
+                  Inscrivez-vous ici
+                </Link>
               </p>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@headlessui/react";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 const product = {
   price: "À partir de 162 500 €",
@@ -262,12 +263,14 @@ export default function GT3RS() {
         {/* Bloc prix + bouton pour mobile/tablette */}
         <div className="mb-8 lg:hidden">
           <p className="text-3xl font-semibold">{product.price}</p>
-          <button
-            type="button"
-            className="mt-6 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
-          >
-            Réserver un essai
-          </button>
+          <Link href="/Profil">
+            <button
+              type="button"
+              className="mt-6 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
+            >
+              S'abonner à la newsletter
+            </button>
+          </Link>
         </div>
 
         <div className="lg:col-span-2">
@@ -299,12 +302,14 @@ export default function GT3RS() {
         {/* Bloc prix + bouton pour desktop */}
         <div className="mt-6 lg:row-span-3 lg:mt-0 hidden lg:block">
           <p className="text-3xl font-semibold">{product.price}</p>
-          <button
-            type="button"
-            className="mt-10 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
-          >
-            Réserver un essai
-          </button>
+          <Link href="/Profil">
+            <button
+              type="button"
+              className="mt-10 flex w-full items-center justify-center rounded-xl bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 transition-colors duration-300"
+            >
+              S'abonner à la newsletter
+            </button>
+          </Link>
         </div>
 
         {/* === Bloc stats + image sur toute la largeur === */}

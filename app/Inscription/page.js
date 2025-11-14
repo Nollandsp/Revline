@@ -24,24 +24,18 @@ export default function Inscription() {
   const [pseudo, setPseudo] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [newsletter, setNewsletter] = useState(false); // ✅ état newsletter
+  const [newsletter, setNewsletter] = useState(false);
   const router = useRouter();
 
-  // ✅ fonction pour Mailchimp
+  // ✅ Fonction d’inscription (vers Brevo)
   async function subscribeToMailchimp(email, firstName) {
-    const res = await fetch("/api/subscribe", {
+    const response = await fetch("/api/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, firstName }),
     });
 
-    if (!res.ok) {
-      const error = await res.json();
-      console.error("Erreur Mailchimp:", error);
-      throw new Error(error.error || "Erreur d'inscription à la newsletter");
-    }
-
-    return await res.json();
+    return await response.json();
   }
 
   const handleSubmit = async (e) => {

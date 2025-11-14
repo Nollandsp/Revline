@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/Loader"; // ton Loader
+import Link from "next/link";
 
 export default function ContactForm() {
   const router = useRouter();
@@ -257,7 +258,11 @@ export default function ContactForm() {
             <div className="px-4 overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out max-h-0 opacity-0 group-open:max-h-96 group-open:opacity-100">
               <p className="mt-2 mb-2 text-neutral-300">
                 Il existe une newsletter pour rester informé des prochaines
-                sorties. (À configurer plus tard)
+                sorties.{" "}
+                <Link href="/Profil" className="text-red-500 underline">
+                  Inscrivez-vous ici
+                </Link>
+                .
               </p>
             </div>
           </details>
