@@ -6,6 +6,8 @@ Il regroupe les dernières nouveautés, fiches techniques, photos haute qualité
 L’objectif est simple :
 Offrir une expérience élégante, rapide et intuitive pour découvrir les supercars du monde entier.
 
+
+
 Fonctionnalités principales
 Showroom complet
 
@@ -21,6 +23,8 @@ Chaque voiture possède sa page dédiée présentant :
 ✔ Informations techniques
 ✔ Présentation du modèle
 
+
+
 Espace membre
 
 Le site propose un système d’authentification sécurisé via Supabase.
@@ -31,6 +35,8 @@ La page Connexion / Inscription
 La page Contact
 
 La gestion du profil utilisateur
+
+
 
 Page Contact (protégée)
 
@@ -47,6 +53,8 @@ Message
 
 Confirmation animé
 
+
+
 FAQ intégrée
 
 Une section claire et simple qui répond aux questions courantes concernant :
@@ -58,6 +66,9 @@ Les informations personnelles
 La suppression de compte
 
 Les nouveautés à venir
+
+
+
 
 Technologies principales
 
@@ -73,6 +84,8 @@ Framer Motion
 
 Shadcn/UI
 
+
+
 Objectif du site
 
 Proposer une plateforme simple, élégante et complète où les passionnés peuvent :
@@ -84,3 +97,5 @@ Accéder à des informations fiables
 Découvrir les dernières sorties
 
 Profiter d’une expérience utilisateur fluide
+
+Lien Vercel : https://revline-eight.vercel.app/
