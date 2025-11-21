@@ -1,29 +1,86 @@
-RLS Base de donnée utilisé :
+Revline – Le site dédié aux passionnés de voitures d’exception
 
-create table public.profiles (
-id uuid references auth.users(id) on delete cascade not null primary key,
-created_at timestamptz default now(),
-pseudo text
-);
+Revline est un site moderne et immersif dédié aux passionnés de voitures d’exception.
+Il regroupe les dernières nouveautés, fiches techniques, photos haute qualité et informations à jour sur les modèles les plus exclusifs du marché.
 
-alter table public.profiles enable row level security;
+L’objectif est simple :
+Offrir une expérience élégante, rapide et intuitive pour découvrir les supercars du monde entier.
 
-create policy "Users can view their own profile"
-on public.profiles
-for select
-using (auth.uid() = id);
+Fonctionnalités principales
+Showroom complet
 
-create policy "Users can insert their own profile"
-on public.profiles
-for insert
-with check (auth.uid() = id);
+Découvrez une large sélection de supercars triées par :
 
-create policy "Users can update their own profile"
-on public.profiles
-for update
-using (auth.uid() = id);
+Marque
 
-create policy "Users can delete their own profile"
-on public.profiles
-for delete
-using (auth.uid() = id);
+Prix (tri croissant / décroissant)
+
+Chaque voiture possède sa page dédiée présentant :
+✔ Photos HD
+✔ Spécifications détaillées
+✔ Informations techniques
+✔ Présentation du modèle
+
+Espace membre
+
+Le site propose un système d’authentification sécurisé via Supabase.
+Une fois connecté, l’utilisateur peut accéder à des pages réservées comme :
+
+La page Connexion / Inscription
+
+La page Contact
+
+La gestion du profil utilisateur
+
+Page Contact (protégée)
+
+Accessible uniquement si l’utilisateur est connecté.
+Elle permet d’envoyer un message via un formulaire moderne, avec :
+
+Nom
+
+Email
+
+Sujet
+
+Message
+
+Confirmation animé
+
+FAQ intégrée
+
+Une section claire et simple qui répond aux questions courantes concernant :
+
+La création de compte
+
+Les informations personnelles
+
+La suppression de compte
+
+Les nouveautés à venir
+
+Technologies principales
+
+Next.js 14
+
+React
+
+TailwindCSS
+
+Supabase (auth & base de données)
+
+Framer Motion
+
+Shadcn/UI
+
+Objectif du site
+
+Proposer une plateforme simple, élégante et complète où les passionnés peuvent :
+
+Explorer l’univers des supercars
+
+Accéder à des informations fiables
+
+Découvrir les dernières sorties
+
+Profiter d’une expérience utilisateur fluide
