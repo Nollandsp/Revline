@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(ui-ux-pro-max)",
+      "Skill(ui-ux-pro-max:*)",
+      "Bash(python \"C:\\\\Users\\\\33659\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"ultra modern automotive supercar dark kinetic animations\" --design-system -p \"Revline\")",
+      "Bash(python \"C:\\\\Users\\\\33659\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"modern condensed bold impact typography automotive\" --domain typography -n 3)"
+    ]
+  }
+}
