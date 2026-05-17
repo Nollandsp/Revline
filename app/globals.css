@@ -75,12 +75,6 @@
 .font-heading  { font-family: var(--font-heading),  'Barlow Condensed', sans-serif; }
 .font-body     { font-family: var(--font-body),     'Barlow',           sans-serif; }
 
-/* ── Custom cursor (desktop only) ── */
-@media (pointer: fine) {
-  html, a, button, input, textarea, select, label, [role="button"] {
-    cursor: none !important;
-  }
-}
 
 /* ─────────────────────────────────────────
    ANIMATIONS

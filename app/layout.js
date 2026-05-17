@@ -1,6 +1,5 @@
 import { Bebas_Neue, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
-import Cursor from "@/components/Cursor";
 
 const bebasNeue = Bebas_Neue({
   variable: "--font-display",
@@ -34,7 +33,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${bebasNeue.variable} ${barlowCondensed.variable} ${barlow.variable} antialiased`}
       >
-        <Cursor />
         {children}
       </body>
     </html>
