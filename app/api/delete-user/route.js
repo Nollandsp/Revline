@@ -1,8 +1,18 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase/client";
+import { rateLimit } from "@/lib/rateLimit";
 
 export async function DELETE(request) {
+  // A07 — Rate limiting : 3 tentatives / 15 min par IP
+  const { ok, retryAfter } = rateLimit(request, { max: 3, windowMs: 15 * 60 * 1000 });
+  if (!ok) {
+    return NextResponse.json(
+      { error: "Trop de requêtes. Réessayez dans quelques minutes." },
+      { status: 429, headers: { "Retry-After": String(retryAfter) } }
+    );
+  }
+
   try {
     const authHeader = request.headers.get("Authorization");
     if (!authHeader || !authHeader.startsWith("Bearer ")) {

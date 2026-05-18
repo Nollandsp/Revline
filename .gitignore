@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# Claude
+.claude
+
+# Database schema (sensible)
+supabase_schema.sql
+
 # debug
 npm-debug.log*
 yarn-debug.log*
