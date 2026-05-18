@@ -1,101 +1,137 @@
-Revline – Le site dédié aux passionnés de voitures d’exception
+# Revline — Showroom Virtuel de Supercars
 
-Revline est un site moderne et immersif dédié aux passionnés de voitures d’exception.
-Il regroupe les dernières nouveautés, fiches techniques, photos haute qualité et informations à jour sur les modèles les plus exclusifs du marché.
+> Plateforme premium dédiée aux passionnés de supercars d'exception. Fiches techniques complètes, données officielles, expérience visuelle immersive.
 
-L’objectif est simple :
-Offrir une expérience élégante, rapide et intuitive pour découvrir les supercars du monde entier.
+🔗 **[revline-eight.vercel.app](https://revline-eight.vercel.app)**
 
+---
 
+## Aperçu
 
-Fonctionnalités principales
-Showroom complet
+Revline est un showroom virtuel Next.js qui regroupe les hypercars les plus exclusives au monde. Chaque modèle dispose d'une page dédiée avec carousel, fiche technique, packs disponibles, statistiques animées et sections cinématiques.
 
-Découvrez une large sélection de supercars triées par :
+---
 
-Marque
+## Voitures au catalogue
 
-Prix (tri croissant / décroissant)
+| Marque       | Modèle            | Puissance | Prix      |
+| ------------ | ----------------- | --------- | --------- |
+| Ferrari      | SF90 XX Stradale  | 1 015 ch  | 700 000 € |
+| Lamborghini  | Revuelto          | 1 015 ch  | 500 000 € |
+| Bugatti      | Tourbillon        | 1 800 ch  | 3,8 M €   |
+| Porsche      | 911 GT3 RS        | 525 ch    | 230 000 € |
+| Porsche      | 718 Cayman GT4 RS | 500 ch    | 162 500 € |
+| Aston Martin | Valhalla          | 1 064 ch  | 950 000 € |
+| Koenigsegg   | Jesko             | 1 600 ch  | 3 M €     |
 
-Chaque voiture possède sa page dédiée présentant :
-✔ Photos HD
-✔ Spécifications détaillées
-✔ Informations techniques
-✔ Présentation du modèle
+---
 
+## Fonctionnalités
 
+- **Showroom** — grille filtrée par marque et par prix
+- **Pages voiture** — carousel HD, lightbox, stats animées, fiche technique (drawer), packs avec modales, section consommation, section exhaust
+- **Authentification** — inscription / connexion / déconnexion via Supabase Auth
+- **Profil** — modification du pseudo, email, mot de passe, suppression de compte
+- **Contact** — formulaire protégé avec validation et envoi en base de données
+- **Newsletter** — intégration Brevo (Sendinblue)
+- **À propos** — timeline, stats, parallax, section "Pourquoi Revline"
 
-Espace membre
+---
 
-Le site propose un système d’authentification sécurisé via Supabase.
-Une fois connecté, l’utilisateur peut accéder à des pages réservées comme :
+## Stack technique
 
-La page Connexion / Inscription
+| Catégorie   | Technologie                            |
+| ----------- | -------------------------------------- |
+| Framework   | Next.js 15.5 (App Router)              |
+| Styling     | Tailwind CSS v4                        |
+| Animations  | Framer Motion v12                      |
+| Auth & BDD  | Supabase                               |
+| Newsletter  | Brevo API                              |
+| Fonts       | Bebas Neue · Barlow Condensed · Barlow |
+| Déploiement | Vercel                                 |
 
-La page Contact
+---
 
-La gestion du profil utilisateur
+## Installation locale
 
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/Nollandsp/revline.git
+cd revline
 
+# 2. Installer les dépendances
+npm install
 
-Page Contact (protégée)
+# 3. Configurer les variables d'environnement
+cp .env.example .env.local
+# Remplir les valeurs dans .env.local
 
-Accessible uniquement si l’utilisateur est connecté.
-Elle permet d’envoyer un message via un formulaire moderne, avec :
+# 4. Lancer le serveur de développement
+npm run dev
+```
 
-Nom
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-Email
+---
 
-Sujet
+## Variables d'environnement
 
-Message
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
 
-Confirmation animé
+# Brevo (newsletter)
+BREVO_API_KEY=
+```
 
+---
 
+## Structure du projet
 
-FAQ intégrée
+```
+app/
+├── page.js              # Page d'accueil
+├── Showroom2/           # Showroom filtrable
+├── SF90XX/              # Pages voiture (×7)
+├── Profil/              # Espace membre
+├── Contact/             # Formulaire de contact
+├── Propos/              # À propos
+├── Connexion/           # Auth
+├── Inscription/         # Auth
+└── api/
+    ├── contact/         # Route POST formulaire
+    ├── subscribe/       # Route POST newsletter
+    └── delete-user/     # Route DELETE compte
 
-Une section claire et simple qui répond aux questions courantes concernant :
+components/
+├── Header/              # Navbar
+├── Footer/
+├── Intro/               # Hero parallax
+├── Favoris/             # Voiture du moment
+├── Marques/             # Liste des marques
+├── WhyRevline/          # Section arguments
+├── Showroom/            # Carousel catalogue
+├── Loader/
+└── Marquee/
 
-La création de compte
+lib/
+├── supabase/client.js   # Client Supabase
+└── rateLimit.js         # Rate limiter in-memory
+```
 
-Les informations personnelles
+---
 
-La suppression de compte
+## Sécurité
 
-Les nouveautés à venir
+- **A01** — `user_id` extrait du JWT côté serveur uniquement
+- **A03** — Validation des entrées sur toutes les routes API
+- **A05** — En-têtes HTTP : CSP, HSTS, X-Frame-Options, nosniff
+- **A07** — Rate limiting sur toutes les routes API (5 req/15min)
 
+---
 
+## Licence
 
-
-Technologies principales
-
-Next.js 14
-
-React
-
-TailwindCSS
-
-Supabase (auth & base de données)
-
-Framer Motion
-
-Shadcn/UI
-
-
-
-Objectif du site
-
-Proposer une plateforme simple, élégante et complète où les passionnés peuvent :
-
-Explorer l’univers des supercars
-
-Accéder à des informations fiables
-
-Découvrir les dernières sorties
-
-Profiter d’une expérience utilisateur fluide
-
-Lien Vercel : https://revline-eight.vercel.app/
+Projet personnel — tous droits réservés.
