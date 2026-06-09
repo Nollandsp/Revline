@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Turnstile } from "@marsidev/react-turnstile";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -18,6 +19,8 @@ export default function Inscription() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const [emailSent, setEmailSent] = useState(false);
   const router = useRouter();
 
   async function subscribeToMailchimp(email, firstName) {
@@ -29,10 +32,33 @@ export default function Inscription() {
     return await response.json();
   }
 
+  const validatePassword = (pwd) => {
+    if (pwd.length < 8) return "Le mot de passe doit contenir au moins 8 caractères.";
+    if (!/[A-Z]/.test(pwd)) return "Le mot de passe doit contenir au moins une majuscule.";
+    if (!/[a-z]/.test(pwd)) return "Le mot de passe doit contenir au moins une minuscule.";
+    if (!/[0-9]/.test(pwd)) return "Le mot de passe doit contenir au moins un chiffre.";
+    if (!/[^A-Za-z0-9]/.test(pwd)) return "Le mot de passe doit contenir au moins un caractère spécial.";
+    if (pwd.length > 128) return "Le mot de passe ne peut pas dépasser 128 caractères.";
+    return null;
+  };
+
+  const validatePseudo = (p) => {
+    if (!p || p.trim().length < 2) return "Le pseudo doit contenir au moins 2 caractères.";
+    if (p.trim().length > 30) return "Le pseudo ne peut pas dépasser 30 caractères.";
+    if (!/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(p.trim())) return "Le pseudo ne peut contenir que des lettres, chiffres, _ et -.";
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    const pseudoErr = validatePseudo(pseudo);
+    if (pseudoErr) { setError(pseudoErr); setLoading(false); return; }
+
+    const pwdErr = validatePassword(password);
+    if (pwdErr) { setError(pwdErr); setLoading(false); return; }
 
     if (password !== confirmPassword) {
       setError("Les mots de passe ne correspondent pas");
@@ -42,10 +68,11 @@ export default function Inscription() {
 
     try {
       const { data, error: signUpError } = await supabase.auth.signUp({
-        email,
+        email: email.trim().toLowerCase(),
         password,
         options: {
-          data: { pseudo },
+          data: { pseudo: pseudo.trim() },
+          captchaToken,
         },
       });
 
@@ -53,17 +80,14 @@ export default function Inscription() {
 
       const user = data.user;
       if (user) {
-        await supabase.from("profiles").upsert([{ id: user.id, pseudo }], { onConflict: "id" });
-
         if (newsletter) {
           try {
-            await subscribeToMailchimp(email, pseudo);
+            await subscribeToMailchimp(email.trim().toLowerCase(), pseudo.trim());
           } catch (err) {
             console.error("Erreur newsletter :", err);
           }
         }
-
-        router.push("/Connexion");
+        setEmailSent(true);
       }
     } catch {
       setError("Erreur lors de l'inscription.");
@@ -78,6 +102,37 @@ export default function Inscription() {
     { id: "password", label: "Mot de passe", type: "password", placeholder: "••••••••", value: password, onChange: setPassword },
     { id: "confirmPassword", label: "Confirmer le mot de passe", type: "password", placeholder: "••••••••", value: confirmPassword, onChange: setConfirmPassword },
   ];
+
+  if (emailSent) {
+    return (
+      <div className="min-h-screen flex bg-black items-center justify-center px-5">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-[380px] text-center"
+        >
+          <div className="relative bg-neutral-950 border border-white/6 p-8">
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-600/50 to-transparent" />
+            <div className="w-12 h-12 border border-white/10 flex items-center justify-center mx-auto mb-6">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-red-500">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 className="font-display text-2xl text-white uppercase mb-3">Vérifiez vos mails</h2>
+            <p className="text-white/35 text-sm font-body leading-relaxed mb-6">
+              Un lien de confirmation a été envoyé à <span className="text-white/60">{email.trim().toLowerCase()}</span>. Cliquez dessus pour activer votre compte.
+            </p>
+            <Link href="/Connexion">
+              <button className="text-white/40 hover:text-white text-[11px] font-semibold tracking-widest uppercase border border-white/10 hover:border-white/30 px-6 py-3 transition-all duration-300 cursor-pointer font-body">
+                Retour à la connexion
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex bg-black overflow-hidden">
@@ -193,10 +248,20 @@ export default function Inscription() {
                 </span>
               </label>
 
+              {/* Captcha */}
+              <div className="w-full">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  onSuccess={setCaptchaToken}
+                  onExpire={() => setCaptchaToken(null)}
+                  options={{ theme: "dark" }}
+                />
+              </div>
+
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white text-[11px] font-semibold tracking-[0.2em] uppercase h-11 rounded-none mt-2 transition-all duration-300 cursor-pointer font-body"
-                disabled={loading}
+                className="w-full bg-red-600 hover:bg-red-700 text-white text-[11px] font-semibold tracking-[0.2em] uppercase h-11 rounded-none mt-2 transition-all duration-300 cursor-pointer font-body disabled:opacity-60 disabled:cursor-not-allowed"
+                disabled={loading || !captchaToken}
               >
                 {loading ? "Inscription..." : "Créer mon compte"}
               </Button>
