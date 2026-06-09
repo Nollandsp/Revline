@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import GT3RSButton from "@/components/ui/buttonGT3RS";
 
 const product = {
   price: "À partir de 230 000 €",
@@ -557,6 +558,9 @@ export default function GT3RS() {
           <p className="text-white/70 text-sm sm:text-base max-w-lg">
             Le moteur atmosphérique et le système d'échappement sport garantissent une expérience sonore sans filtre.
           </p>
+        </div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
+          <GT3RSButton />
         </div>
       </section>
 
