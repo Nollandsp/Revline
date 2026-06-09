@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Turnstile } from "@marsidev/react-turnstile";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -15,20 +16,42 @@ export default function Connexion() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPwd, setShowPwd] = useState(false);
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [retryAfter, setRetryAfter] = useState(0);
+  const [captchaToken, setCaptchaToken] = useState(null);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (retryAfter > 0) {
+      setError(`Trop de tentatives. Réessayez dans ${retryAfter} secondes.`);
+      return;
+    }
     setLoading(true);
     setError("");
 
     try {
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email: email.trim().toLowerCase(),
+        password,
+        options: { captchaToken },
+      });
 
       if (authError) {
-        let message = authError.message;
-        if (message === "Invalid login credentials") message = "Email ou mot de passe incorrect.";
-        setError(message);
+        const next = failedAttempts + 1;
+        setFailedAttempts(next);
+        const delay = next >= 5 ? 30 : next >= 3 ? 10 : 0;
+        if (delay > 0) {
+          setRetryAfter(delay);
+          const interval = setInterval(() => {
+            setRetryAfter((s) => {
+              if (s <= 1) { clearInterval(interval); return 0; }
+              return s - 1;
+            });
+          }, 1000);
+        }
+        setError("Email ou mot de passe incorrect.");
         setLoading(false);
         return;
       }
@@ -41,6 +64,8 @@ export default function Connexion() {
         await supabase.from("profiles").insert({ id: user.id, pseudo: "" }).select().single();
       }
 
+      document.cookie = "revline_session=1; path=/; Secure; SameSite=Strict; Max-Age=604800";
+      setFailedAttempts(0);
       router.push("/");
     } catch {
       setError("Erreur lors de la connexion");
@@ -128,25 +153,47 @@ export default function Connexion() {
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-600/50 to-transparent" />
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {[
-                { id: "email", label: "Email", type: "email", placeholder: "email@exemple.com", value: email, onChange: setEmail },
-                { id: "password", label: "Mot de passe", type: "password", placeholder: "••••••••", value: password, onChange: setPassword },
-              ].map((field) => (
-                <div key={field.id} className="flex flex-col gap-1.5">
-                  <label htmlFor={field.id} className="text-white/45 text-[10px] font-semibold tracking-[0.15em] uppercase font-body">
-                    {field.label}
-                  </label>
+              {/* Email */}
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="email" className="text-white/45 text-[10px] font-semibold tracking-[0.15em] uppercase font-body">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="email@exemple.com"
+                  className="bg-black border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-red-600/60 focus:ring-0 h-11 font-body"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              {/* Mot de passe */}
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="password" className="text-white/45 text-[10px] font-semibold tracking-[0.15em] uppercase font-body">
+                  Mot de passe
+                </label>
+                <div className="relative">
                   <Input
-                    id={field.id}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="bg-black border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-red-600/60 focus:ring-0 h-11 font-body"
-                    value={field.value}
-                    onChange={(e) => field.onChange(e.target.value)}
+                    id="password"
+                    type={showPwd ? "text" : "password"}
+                    placeholder="••••••••"
+                    className="bg-black border-white/10 text-white placeholder:text-white/20 rounded-none focus:border-red-600/60 focus:ring-0 h-11 pr-10 font-body"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPwd(!showPwd)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors duration-200"
+                    tabIndex={-1}
+                  >
+                    {showPwd ? <EyeOff size={15} /> : <Eye size={15} />}
+                  </button>
                 </div>
-              ))}
+              </div>
 
               {error && (
                 <p className="text-red-500 text-xs border border-red-600/20 bg-red-600/8 px-3 py-2 font-body">
@@ -158,12 +205,22 @@ export default function Connexion() {
                 Mot de passe oublié ?
               </Link>
 
+              {/* Captcha */}
+              <div className="w-full">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  onSuccess={setCaptchaToken}
+                  onExpire={() => setCaptchaToken(null)}
+                  options={{ theme: "dark" }}
+                />
+              </div>
+
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white text-[11px] font-semibold tracking-[0.2em] uppercase h-11 rounded-none mt-2 transition-all duration-300 cursor-pointer font-body"
-                disabled={loading}
+                className="w-full bg-red-600 hover:bg-red-700 text-white text-[11px] font-semibold tracking-[0.2em] uppercase h-11 rounded-none mt-2 transition-all duration-300 cursor-pointer font-body disabled:opacity-60 disabled:cursor-not-allowed"
+                disabled={loading || retryAfter > 0 || !captchaToken}
               >
-                {loading ? "Connexion..." : "Se connecter"}
+                {loading ? "Connexion..." : retryAfter > 0 ? `Réessayer dans ${retryAfter}s` : "Se connecter"}
               </Button>
             </form>
 

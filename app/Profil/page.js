@@ -118,6 +118,7 @@ export default function Profil() {
   };
 
   const signOut = async () => {
+    document.cookie = "revline_session=; path=/; Max-Age=0; Secure; SameSite=Strict";
     await supabase.auth.signOut();
     router.push("/");
   };
@@ -133,7 +134,11 @@ export default function Profil() {
       });
       const data = await response.json();
       if (!response.ok) showErr("Erreur suppression : " + (data.error || "Erreur inconnue"));
-      else { await supabase.auth.signOut(); router.push("/"); }
+      else {
+        document.cookie = "revline_session=; path=/; Max-Age=0; Secure; SameSite=Strict";
+        await supabase.auth.signOut();
+        router.push("/");
+      }
     } catch { showErr("Erreur lors de la suppression du compte"); }
     setLoading(false);
     setShowDeleteModal(false);
